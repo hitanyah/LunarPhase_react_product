@@ -1,0 +1,16 @@
+/* 其它自訂樣式 */
+/* @import './styles/custom.scss'; */
+
+/* 全站都會使用的共同樣式 */
+/* @import './styles/global.scss'; */
+
+/* global */
+@import '~bootstrap/scss/bootstrap';
+@import './styles/style-guide.scss';
+
+/* index */
+/* @import './pages/Index/Index.scss'; */
+
+/* product */
+/* @import './pages/Product/Product.scss'; */
+/* @import './pages/Product/ProductDetail.scss'; */
