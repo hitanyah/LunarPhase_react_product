@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './IndexMy.scss'
 
 // component
 import HeroSlider from './IndexHeroSlider'
-import NavbarIndex from '../../components/NavbarIndex'
+import NavbarIndex from './components/NavbarIndex'
 
 // bootstrap
 // import Button from 'react-bootstrap/Button'
@@ -28,29 +29,29 @@ function Index() {
             />
           </h1>
           <div className="index-top-sns">
-            <a className="mr-3" href>
+            <Link className="mr-3" to="https://www.facebook.com/IIIEDU.TW">
               <GrFacebookOption />
-            </a>
-            <a href>
+            </Link>
+            <Link to="https://www.iiiedu.org.tw/">
               <GrInstagram />
-            </a>
+            </Link>
           </div>
           <nav className="index-top-menu">
             <ul className="d-flex flex-column index-top-nav align-items-end">
               <li className="col">
-                <a href="#shop">PRODUCT</a>
+                <Link to="#product">PRODUCT</Link>
               </li>
               <li className="col">
-                <a href="#article">ARTICLE</a>
+                <Link to="#article">ARTICLE</Link>
               </li>
               <li className="col">
-                <a href="#kit">KIT</a>
+                <Link to="#kit">KIT</Link>
               </li>
               <li className="col">
-                <a href="#order">EVENT</a>
+                <Link to="#order">EVENT</Link>
               </li>
               <li className="col">
-                <a href="#join-us">JOIN US</a>
+                <Link to="#join-us">JOIN US</Link>
               </li>
             </ul>
           </nav>
@@ -61,14 +62,14 @@ function Index() {
 
         <div className="index-top-bottom d-flex justify-content-between py-3">
           <div className="index-login-bar d-flex my-auto">
-            <a href>LOG IN</a>
+            <Link to="">LOG IN</Link>
             <p> / </p>
-            <a href>CART</a>
+            <Link to="">CART</Link>
           </div>
           <div className="index-news-bar d-flex my-auto">
-            <a className="index-news-bar-info my-auto py-0" href>
+            <Link className="index-news-bar-info my-auto py-0" to="">
               新品上市 限時免運中
-            </a>
+            </Link>
             {/* <div className="btn-soft-green mx-auto">
               <a href>SHOP NOW</a>
             </div> */}
@@ -95,9 +96,9 @@ function Index() {
           />
           <div className="row col-12 index-about-unit justify-content-between">
             <div className="index-about-unit-block col-12 col-md-6 col-lg-3 px-5 px-md-3 mb-3">
-              <a href>
+              <Link to="/product">
                 <span>01.</span>
-                <h3>SHOP</h3>
+                <h3>PRODUCT</h3>
                 <p className="p-tc">
                   提供各式生理用品
                   <br />
@@ -105,10 +106,10 @@ function Index() {
                   <br />
                   照顧身體 也照顧環境
                 </p>
-              </a>
+              </Link>
             </div>
             <div className="index-about-unit-block col-12 col-md-6 col-lg-3 px-5 px-md-3 mb-3">
-              <a href>
+              <Link to="/article">
                 <span>02.</span>
                 <h3>ARTICLE</h3>
                 <p className="p-tc">
@@ -116,25 +117,25 @@ function Index() {
                   <br />
                   分享更多小秘密
                 </p>
-              </a>
+              </Link>
             </div>
             <div className="index-about-unit-block col-12 col-md-6 col-lg-3 px-5 px-md-3 mb-3">
-              <a href>
+              <Link to="/kit">
                 <span>03.</span>
-                <h3>ORDER</h3>
+                <h3>KIT</h3>
                 <p className="p-tc">
                   月訂專區
                   <br />
                   生理期採購新提案
                 </p>
-              </a>
+              </Link>
             </div>
             <div className="index-about-unit-block col-12 col-md-6 col-lg-3 px-5 px-md-3 mb-3">
-              <a href>
+              <Link to="/event">
                 <span>04.</span>
                 <h3>EVENT</h3>
                 <p className="p-tc">和我們一起探索身心靈</p>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -402,9 +403,7 @@ function Index() {
           </div>
         </div>
         <div className="btn-more index-kit-bottom mr-0 pr-0">
-          <a className href>
-            more
-          </a>
+          <Link to="/kit">more</Link>
         </div>
       </div>
       {/* EVENT */}
@@ -412,9 +411,9 @@ function Index() {
         <div className="index-event-top d-flex justify-content-between">
           <div className="index-event-block" />
           <h2>EVENT</h2>
-          <a className="btn-more" href>
-            more
-          </a>
+          <div className="btn-more">
+            <Link to="/event">more</Link>
+          </div>
         </div>
         <h6 className="h6-tc text-center">活動快報</h6>
         <div className="d-flex mt-5">
@@ -470,29 +469,29 @@ function Index() {
             <nav className="my-auto col-12 col-md-10 px-0">
               <ul className="d-flex justify-content-center justify-content-md-end  my-3 my-md-0 px-auto px-md-0 col-12">
                 <li>
-                  <a className="footer-a ml-3" href>
+                  <Link to="/product" className="footer-a ml-3">
                     PRODUCT
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="footer-a ml-3" href>
-                    BLOG
-                  </a>
+                  <Link to="/article" className="footer-a ml-3">
+                    ARTICLE
+                  </Link>
                 </li>
                 <li>
-                  <a className="footer-a ml-3" href>
+                  <Link to="/kit" className="footer-a ml-3">
                     KIT
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="footer-a ml-3" href>
+                  <Link to="event" className="footer-a ml-3">
                     EVENT
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="footer-a ml-3" href>
+                  <Link to="/" className="footer-a ml-3">
                     JOIN US
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>

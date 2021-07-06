@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 // import 'App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/style-guide.scss'
-import './pages/Index/IndexMy.scss'
 
 // pages
 import Index from './pages/Index/IndexMy'

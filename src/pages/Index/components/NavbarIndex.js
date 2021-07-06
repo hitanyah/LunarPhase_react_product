@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // react-icon
@@ -6,10 +6,21 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
 import { FaBookmark } from 'react-icons/fa'
 
-function Navbar() {
+function NavbarIndex() {
+  const [sticky, setSticky] = useState(false)
+
+  const navbarSticky = () => {
+    if (window.scrollY >= window.innerHeight) {
+      setSticky(true)
+    } else {
+      setSticky(false)
+    }
+  }
+  window.addEventListener('scroll', navbarSticky)
+
   return (
     <>
-      <nav id="navbar" className="nav-bar sticky">
+      <nav id="navbar" className={sticky ? 'nav-bar sticky' : 'nav-bar'}>
         <div className="nav-bar-top d-flex">
           <div className="col-4" />
           <div className="col-4 d-flex justify-content-center">
@@ -30,7 +41,6 @@ function Navbar() {
             <div className="ml-2 mt-2">
               <a className="mx-0" href>
                 <FaUser />
-                <i className="fas fa-user" />
               </a>
               <div />
             </div>
@@ -71,4 +81,4 @@ function Navbar() {
     </>
   )
 }
-export default Navbar
+export default NavbarIndex

@@ -56,9 +56,14 @@ a:hover {
   height: 120px;
   background-color: #f7f7ee;
   text-align: center;
-  box-shadow: 0px -5px 10px 0px #3838449a;
+  box-shadow: 0px 3px 8px -5px #38384455;
   padding: 20px 140px;
   margin: 0;
+}
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 20px 20px;
+  }
 }
 .sticky {
   position: fixed;
