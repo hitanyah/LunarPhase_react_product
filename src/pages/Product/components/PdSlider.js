@@ -19,7 +19,7 @@ function Product() {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="product-carousel-img d-block w-100"
               src="/img/Index/hero002.jpg"
               alt="Second slide"
             />
@@ -31,7 +31,7 @@ function Product() {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="product-carousel-img d-block w-100"
               src="/img/Index/hero003.jpg"
               alt="Third slide"
             />

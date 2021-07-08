@@ -43,7 +43,7 @@
   border-top: 1px solid #383844;
   border-bottom: 1px solid #383844;
 }
-.category-btn {
+.pd-category-btn {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 600;
   font-size: 16px;
@@ -54,7 +54,12 @@
   padding: 4px 0;
   border-bottom: 2px solid #e64b4b00;
 }
-.category-btn:hover {
+.pd-category-selected {
+  color: #e64b4b;
+  border-bottom: 2px solid #e64b4b;
+  transition: 0.2s;
+}
+.pd-category-btn:hover {
   color: #e64b4b;
   border-bottom: 2px solid #e64b4b;
   transition: 0.2s;

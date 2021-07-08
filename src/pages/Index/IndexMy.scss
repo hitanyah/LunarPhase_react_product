@@ -252,19 +252,19 @@
   transform: translateY(-50%);
 }
 .moon1 {
-  background: url(http://localhost:3000/img/Index/moon01.svg);
+  background: url(../../img-bg/Index/moon01.svg);
 }
 .moon2 {
-  background: url(http://localhost:3000/img/Index/moon02.svg);
+  background: url(../../img-bg/Index/moon02.svg);
 }
 .moon3 {
-  background: url(http://localhost:3000/img/Index/moon03.svg);
+  background: url(../../img-bg/Index/moon03.svg);
 }
 .moon4 {
-  background: url(http://localhost:3000/img/Index/moon04.svg);
+  background: url(../../img-bg/Index/moon04.svg);
 }
 .moon5 {
-  background: url(http://localhost:3000/img/Index/moon05.svg);
+  background: url(../../img-bg/Index/moon05.svg);
 }
 .index-product-link {
   margin-top: 12px;
@@ -369,7 +369,7 @@
 .index-kit-pic1 {
   width: 360px;
   height: 450px;
-  background: no-repeat url(http://localhost:3000/img/Index/kit001.jpg);
+  background: no-repeat url(../../img-bg/Index/kit001.jpg);
   background-size: cover;
 
   position: absolute;
@@ -380,7 +380,7 @@
 .index-kit-pic2 {
   width: 320px;
   height: 400px;
-  background: no-repeat url(http://localhost:3000/img/Index/kit002.jpg);
+  background: no-repeat url(../../img-bg/Index/kit002.jpg);
   background-size: cover;
 
   position: absolute;
@@ -391,7 +391,7 @@
 .index-kit-pic3 {
   width: 320px;
   height: 400px;
-  background: no-repeat url(http://localhost:3000/img/Index/kit003.jpg);
+  background: no-repeat url(../../img-bg/Index/kit003.jpg);
   background-size: cover;
 
   position: absolute;
@@ -402,7 +402,7 @@
 .index-kit-pic4 {
   width: 240px;
   height: 300px;
-  background: no-repeat url(http://localhost:3000/img/Index/kit004.jpg);
+  background: no-repeat url(../../img-bg/Index/kit004.jpg);
   background-size: cover;
 
   position: absolute;
@@ -540,7 +540,7 @@
 }
 .banner-img {
   height: 100%;
-  background: no-repeat url(../img/Index/banner001.jpg);
+  background: no-repeat url(../../img-bg/Index/banner001.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

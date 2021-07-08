@@ -39,19 +39,19 @@ function Index() {
           <nav className="index-top-menu">
             <ul className="d-flex flex-column index-top-nav align-items-end">
               <li className="col">
-                <Link to="#product">PRODUCT</Link>
+                <Link to="/product">PRODUCT</Link>
               </li>
               <li className="col">
-                <Link to="#article">ARTICLE</Link>
+                <Link to="/article">ARTICLE</Link>
               </li>
               <li className="col">
-                <Link to="#kit">KIT</Link>
+                <Link to="/kit">KIT</Link>
               </li>
               <li className="col">
-                <Link to="#order">EVENT</Link>
+                <Link to="/order">EVENT</Link>
               </li>
               <li className="col">
-                <Link to="#join-us">JOIN US</Link>
+                <Link to="/member">JOIN US</Link>
               </li>
             </ul>
           </nav>

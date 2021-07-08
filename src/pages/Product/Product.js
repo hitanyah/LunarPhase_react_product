@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Product.scss'
@@ -7,10 +7,91 @@ import './Product.scss'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import PdSlider from './components/PdSlider'
-import PdAll from './components/PdAll'
+// import PdAll from './components/PdAll'
 import PdLineHeart from './components/PdLineHeart'
+import PdCateTop from './components/PdCateTop'
+import PdItemBlock from './components/PdItemBlock'
 
-function Product() {
+function Product(props) {
+  const [products, setProducts] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+
+  async function getPoductFromServer() {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:3030/product/all'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+    // 設定資料
+    setProducts(data)
+  }
+
+  useEffect(() => {
+    getPoductFromServer()
+  }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDataLoading(false)
+    }, 1000)
+  }, [products])
+
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    </>
+  )
+
+  const display = (
+    <>
+      <div className="row product-content flex-column">
+        <div className="row product-unit-wrap">
+          {products.length &&
+            products.map((value, index) => {
+              return (
+                <>
+                  <PdItemBlock
+                    itemSize={value.itemSize}
+                    itemName={value.itemName}
+                    itemPrice={value.itemPrice}
+                  />
+                </>
+              )
+            })}
+        </div>
+        <div className="product-unit-page mt-5">
+          <div className="btn-group" role="group" aria-label="Basic example">
+            <button type="button" className="btn ">
+              &lt; PREV
+            </button>
+            <button type="button" className="btn ">
+              1
+            </button>
+            <button type="button" className="btn ">
+              NEXT &gt;
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  )
   return (
     <>
       <Navbar />
@@ -44,47 +125,9 @@ function Product() {
       <div className="container-fluid">
         <div className="row flex-column">
           <h4>PRODUCT</h4>
-          <div className="product-category d-flex flex-column flex-sm-row justify-content-between py-0 px-0 px-lg-5">
-            <button className="category-btn">熱門活動</button>
-            <button className="category-btn">衛生棉</button>
-            <button className="category-btn">布衛生棉</button>
-            <button className="category-btn">衛生棉條</button>
-            <button className="category-btn">月亮杯</button>
-            <button className="category-btn">生理褲</button>
-            <button className="category-btn">全部商品</button>
-          </div>
-          <div className="product-category-sec text-center mx-auto">
-            <div className="d-flex mx-auto justify-content-between py-3">
-              <div className="dropdown product-dropdown">
-                <button
-                  className="btn-border-s dropdown-toggle"
-                  type="button"
-                  id="dropdownMenu1"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  選擇類別
-                </button>
-                <div
-                  className="dropdown-menu product-dropdown-menu"
-                  aria-labelledby="dropdownMenu1"
-                >
-                  <button className="dropdown-item" type="button">
-                    日用
-                  </button>
-                  <button className="dropdown-item" type="button">
-                    夜用
-                  </button>
-                  <button className="dropdown-item" type="button">
-                    護墊
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PdCateTop />
         </div>
-        <PdAll />
+        {dataLoading ? loading : display}
       </div>
       {/* ----- top pick ----- */}
       <div className="top-pick container-fluid">
