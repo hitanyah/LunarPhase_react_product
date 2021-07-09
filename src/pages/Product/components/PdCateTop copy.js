@@ -5,10 +5,6 @@ import PdCateSelectAll from './PdCateSelectAll'
 
 function PdCateTop() {
   const [selectBtn, setSelectBtn] = useState('PdCateSelectAll')
-  // 設定選了哪個分類
-
-  const [switchCate, setSwitchCate] = useState('')
-
   const [clicked, setClicked] = useState(false)
 
   const clickCheck = () => {
@@ -28,14 +24,8 @@ function PdCateTop() {
         >
           熱門活動
         </button>
-        <button onClick={() => setSwitchCate('1')} className="pd-category-btn">
-          衛生棉
-        </button>
-
-        <button onClick={() => setSwitchCate('2')} className="pd-category-btn">
-          布衛生棉
-        </button>
-
+        <button className="pd-category-btn">衛生棉</button>
+        <button className="pd-category-btn">布衛生棉</button>
         <button className="pd-category-btn">衛生棉條</button>
         <button className="pd-category-btn">月亮杯</button>
         <button
@@ -51,9 +41,8 @@ function PdCateTop() {
           全部商品
         </button>
       </div>
-
-      {switchCate === 'PdCateSelectAll' && (
-        <PdCateSelectAll setSwitchCate={setSelectBtn} />
+      {selectBtn === 'PdCateSelectAll' && (
+        <PdCateSelectAll setSelectBtn={setSelectBtn} />
       )}
       {selectBtn === 'PdCateSelect' && (
         <PdCateSelect setSelectBtn={setSelectBtn} />

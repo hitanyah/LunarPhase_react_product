@@ -120,6 +120,10 @@
   color: #383844;
   transition: 0.3s;
 }
+.product-added {
+  border: 1px solid #e64b4b;
+  color: #e64b4b;
+}
 .product-add:hover {
   border: 1px solid #383844;
   background: #383844;
@@ -160,6 +164,10 @@
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 500;
   font-size: 20px;
+}
+.h5-item:hover {
+  color: #e64b4b;
+  transition: 0.3s;
 }
 .p-price {
   font-family: 'Montserrat', sans-serif;

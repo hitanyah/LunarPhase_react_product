@@ -1,9 +1,20 @@
 import React from 'react'
 
+import { Carousel } from 'react-responsive-carousel'
+
 // react-icon
 import { FaRegBookmark } from 'react-icons/fa'
 
-function PdDetailBlock() {
+function PdDetailBlock(props) {
+  const {
+    itemName,
+    itemSize,
+    flowName,
+    flowImg,
+    itemPrice,
+    itemDescription,
+    optionName,
+  } = props
   return (
     <>
       <div className="container-fluid">
@@ -23,23 +34,23 @@ function PdDetailBlock() {
           </div>
           <div className="item-info-wrap text-left col-12 col-md-6 mt-5 mt-md-0 pl-5">
             <div className="item-name mb-3">
-              <h5 className="h5-item-l">弦月柔棉 日用超薄衛生棉</h5>
+              <h5 className="h5-item-l">{itemName}</h5>
             </div>
             <div className="item-tag d-flex">
               <img
                 className="item-drop mr-2"
-                src="../img/svg/drop03.svg"
+                src={`/../img/svg/${flowImg}`}
                 alt=""
               />
-              <p className="item-tags my-auto mx-0"> 23 cm</p>
-              <p className="item-tags my-auto mx-0"> Slim</p>
+              <p className="item-tags my-auto mx-0"> {itemSize}</p>
+              <p className="item-tags my-auto mx-0"> {flowName}</p>
             </div>
             <div className="item-price-line d-flex justify-content-between align-items-center ">
               <div className="item-price">
-                <p className="p-price my-auto">$ 70</p>
+                <p className="p-price my-auto">$ {itemPrice}</p>
               </div>
               <button className="bookmark-add d-flex">
-                <p className="underline my-auto ">
+                <p className="my-auto mx-0">
                   <FaRegBookmark /> + 加入收藏
                 </p>
               </button>
@@ -47,19 +58,13 @@ function PdDetailBlock() {
             <div className="item-detail">
               <h6>特色</h6>
               <div className="item-detail-content mb-0 pd-0">
-                <p>
-                  100% 有機棉
-                  <br />
-                  吸收安心保證
-                  <br />
-                  親膚少刺激
-                </p>
+                <p>{itemDescription}</p>
               </div>
             </div>
             <div className="item-style d-flex justify-content-between">
               <h6>規格</h6>
               <div className="item-style-tag">
-                <button className="btn-option">12 pic</button>
+                <button className="btn-option">{optionName}</button>
               </div>
             </div>
             <div className="item-qty d-flex justify-content-between">

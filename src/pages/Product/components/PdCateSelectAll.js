@@ -1,36 +1,56 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function PdCateSelectAll(props) {
+  const [cateFlow, setCateFlow] = useState([])
+
+  async function getFlowFromServer() {
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:3030/product/flow'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+    // 設定資料
+
+    setCateFlow(data)
+  }
+
+  useEffect(() => {
+    getFlowFromServer()
+  }, [])
+
+  let display = (
+    <>
+      <DropdownButton id="dropdownMenu1n" className="mx-3" title="依流量選擇">
+        {cateFlow.length &&
+          cateFlow.map((value, index) => {
+            return (
+              <>
+                <Dropdown.Item href="#/action-3">
+                  {value.flowName}
+                </Dropdown.Item>
+              </>
+            )
+          })}
+      </DropdownButton>
+    </>
+  )
+
   return (
     <>
       <div className="product-category-sec text-center mx-auto">
         <div className="d-flex mx-auto justify-content-between py-3">
-          <div className="dropdown product-dropdown">
-            <button
-              className="btn-border-s dropdown-toggle"
-              type="button"
-              id="dropdownMenu1"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              選擇類別ALL
-            </button>
-            <div
-              className="dropdown-menu product-dropdown-menu"
-              aria-labelledby="dropdownMenu1"
-            >
-              <button className="dropdown-item" type="button">
-                日用
-              </button>
-              <button className="dropdown-item" type="button">
-                夜用
-              </button>
-              <button className="dropdown-item" type="button">
-                護墊
-              </button>
-            </div>
-          </div>
+          {display}
         </div>
       </div>
     </>

@@ -66,12 +66,15 @@
 }
 .bookmark-add {
   border: none;
+  border-bottom: 1.5px solid #383844;
   background: none;
   margin: 0;
   padding: 0;
 }
 .bookmark-add:hover {
-  opacity: 0.6;
+  border-bottom: 1.5px solid #e64b4b;
+  color: #e64b4b;
+  // opacity: 0.6;
   transition: 0.3s;
 }
 

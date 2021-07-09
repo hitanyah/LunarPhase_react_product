@@ -68,9 +68,12 @@ function Product(props) {
               return (
                 <>
                   <PdItemBlock
+                    itemId={value.itemId}
                     itemSize={value.itemSize}
+                    flowImg={value.flowImg}
                     itemName={value.itemName}
                     itemPrice={value.itemPrice}
+                    itemCoverImg={value.itemCoverImg}
                   />
                 </>
               )
