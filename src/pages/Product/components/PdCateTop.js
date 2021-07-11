@@ -5,37 +5,27 @@ import PdCateSelectAll from './PdCateSelectAll'
 
 function PdCateTop() {
   const [selectBtn, setSelectBtn] = useState('PdCateSelectAll')
+
   // 設定選了哪個分類
+  const [cateOption, setCateOption] = useState(0)
 
-  const [switchCate, setSwitchCate] = useState('')
-
+  // 按鈕 on/off
+  // 如何在點選其他按鈕時自動消除？
   const [clicked, setClicked] = useState(false)
-
-  const clickCheck = () => {
-    setClicked(!clicked)
-  }
 
   return (
     <>
       <div className="product-category d-flex flex-column flex-sm-row justify-content-between py-0 px-0 px-lg-5">
         <button
-          onChange={clickCheck}
+          onClick={() => setClicked(!clicked)}
           className={
-            clicked
-              ? 'pd-category-btn .pd-category-selected'
-              : 'pd-category-btn'
+            clicked ? 'pd-category-btn pd-category-selected' : 'pd-category-btn'
           }
         >
           熱門活動
         </button>
-        <button onClick={() => setSwitchCate('1')} className="pd-category-btn">
-          衛生棉
-        </button>
-
-        <button onClick={() => setSwitchCate('2')} className="pd-category-btn">
-          布衛生棉
-        </button>
-
+        <button className="pd-category-btn">衛生棉</button>
+        <button className="pd-category-btn">布衛生棉</button>
         <button className="pd-category-btn">衛生棉條</button>
         <button className="pd-category-btn">月亮杯</button>
         <button
@@ -51,9 +41,8 @@ function PdCateTop() {
           全部商品
         </button>
       </div>
-
-      {switchCate === 'PdCateSelectAll' && (
-        <PdCateSelectAll setSwitchCate={setSelectBtn} />
+      {selectBtn === 'PdCateSelectAll' && (
+        <PdCateSelectAll setSelectBtn={setSelectBtn} />
       )}
       {selectBtn === 'PdCateSelect' && (
         <PdCateSelect setSelectBtn={setSelectBtn} />

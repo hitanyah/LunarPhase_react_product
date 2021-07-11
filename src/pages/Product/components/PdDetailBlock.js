@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Carousel } from 'react-responsive-carousel'
-
 // react-icon
 import { FaRegBookmark } from 'react-icons/fa'
 
@@ -58,7 +56,7 @@ function PdDetailBlock(props) {
             <div className="item-detail">
               <h6>特色</h6>
               <div className="item-detail-content mb-0 pd-0">
-                <p>{itemDescription}</p>
+                <p dangerouslySetInnerHTML={{ __html: itemDescription }}></p>
               </div>
             </div>
             <div className="item-style d-flex justify-content-between">

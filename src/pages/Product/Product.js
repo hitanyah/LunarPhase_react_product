@@ -7,6 +7,8 @@ import './Product.scss'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import PdSlider from './components/PdSlider'
+import PdLinkArticle from './components/PdLinkArticle'
+
 // import PdAll from './components/PdAll'
 import PdLineHeart from './components/PdLineHeart'
 import PdCateTop from './components/PdCateTop'
@@ -14,15 +16,18 @@ import PdItemBlock from './components/PdItemBlock'
 
 function Product(props) {
   const [products, setProducts] = useState([])
-  const [dataLoading, setDataLoading] = useState(false)
+  // const [dataLoading, setDataLoading] = useState(false)
+  const [page, setPage] = useState(1)
 
   async function getPoductFromServer() {
     // 開啟載入指示
-    setDataLoading(true)
+    // setDataLoading(true)
+
+    // 現在頁數
+    let pageUrl = `?page=${page}`
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/all'
-
+    const url = 'http://localhost:3030/product/' + pageUrl
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
@@ -43,28 +48,32 @@ function Product(props) {
     getPoductFromServer()
   }, [])
 
-  useEffect(() => {
-    setTimeout(() => {
-      setDataLoading(false)
-    }, 1000)
-  }, [products])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setDataLoading(false)
+  //   }, 1000)
+  // }, [products])
 
-  const loading = (
-    <>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    </>
-  )
+  //列出頁數陣列
+  let pageArray = Array.from(Array(products.totalPages).keys())
+  console.log(pageArray)
+
+  // const loading = (
+  //   <>
+  //     <div className="d-flex justify-content-center">
+  //       <div className="spinner-border" role="status">
+  //         <span className="sr-only">Loading...</span>
+  //       </div>
+  //     </div>
+  //   </>
+  // )
 
   const display = (
     <>
       <div className="row product-content flex-column">
         <div className="row product-unit-wrap">
-          {products.length &&
-            products.map((value, index) => {
+          {products.perPage &&
+            products.data.map((value, index) => {
               return (
                 <>
                   <PdItemBlock
@@ -73,20 +82,37 @@ function Product(props) {
                     flowImg={value.flowImg}
                     itemName={value.itemName}
                     itemPrice={value.itemPrice}
+                    optionName={value.optionName}
                     itemCoverImg={value.itemCoverImg}
                   />
                 </>
               )
             })}
         </div>
+        {/* page switch */}
         <div className="product-unit-page mt-5">
           <div className="btn-group" role="group" aria-label="Basic example">
             <button type="button" className="btn ">
               &lt; PREV
             </button>
-            <button type="button" className="btn ">
-              1
-            </button>
+            {pageArray.map((i) => {
+              return (
+                <>
+                  <button
+                    onClick={() => {
+                      setPage(++i)
+
+                      getPoductFromServer()
+                    }}
+                    type="button"
+                    className="btn "
+                  >
+                    {++i}
+                  </button>
+                </>
+              )
+            })}
+
             <button type="button" className="btn ">
               NEXT &gt;
             </button>
@@ -130,7 +156,8 @@ function Product(props) {
           <h4>PRODUCT</h4>
           <PdCateTop />
         </div>
-        {dataLoading ? loading : display}
+        {display}
+        {/* {dataLoading ? loading : display} */}
       </div>
       {/* ----- top pick ----- */}
       <div className="top-pick container-fluid">
@@ -219,55 +246,33 @@ function Product(props) {
             </div>
           </div>
         </div>
+
         <div className="row justify-content-between">
           <div className="order-link col-12 col-md-6">
-            <div className="order-link-box">
-              <Link to="">
+            <Link to="">
+              <div className="order-link-box">
                 <img src="/img/Product/items002.jpg" alt="" />
-              </Link>
-              <div className="order-link-info">
-                <Link to="">
+                <div className="order-link-info">
                   <h5 className="h5-tc">月訂專區</h5>
-                </Link>
-                <p className="mx-0">生理期採購新提案</p>
+                  <p className="mx-0">生理期採購新提案</p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="order-link col-12 col-md-6">
-            <div className="order-link-box">
-              <Link to="">
+            <Link to="">
+              <div className="order-link-box">
                 <img src="/img/Product/items003.jpg" alt="" />
-              </Link>
-              <div className="order-link-info">
-                <Link to="">
+                <div className="order-link-info">
                   <h5 className="h5-tc">如何挑選</h5>
-                </Link>
-                <p className="mx-0">試試小遊戲 測出最適合妳的生理用品</p>
+                  <p className="mx-0">試試小遊戲 測出最適合妳的生理用品</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="row product-article py-3">
-          <div className="product-article-img col-12 col-md-4 mb-3 mb-md-0 p-3">
-            <img src="/img/Product/items001.jpg" alt="" />
-          </div>
-          <div className="product-article-info col-12 col-md-8 text-left pl-3 pl-md-4 py-3">
-            <div>
-              <h5 className="h5-tc">初學者指南</h5>
-              <p>
-                獻給想告別棉棉，卻遲遲不敢擁抱新式生理用品的妳...
-                <br />
-                這裡有一些關於棉條、月亮杯的基本知識，
-                <br />
-                想了解各種生理用品的使用方式嗎？快來瞧瞧吧！
-              </p>
-            </div>
-            <div className="btn-more ml-auto">
-              <Link to="/article">more</Link>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
+      <PdLinkArticle />
       <Footer />
     </>
   )

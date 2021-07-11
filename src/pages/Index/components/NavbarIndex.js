@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 // react-icon
 import { FaShoppingCart } from 'react-icons/fa'
 import { FaUser } from 'react-icons/fa'
@@ -9,14 +9,26 @@ import { FaBookmark } from 'react-icons/fa'
 function NavbarIndex() {
   const [sticky, setSticky] = useState(false)
 
-  const navbarSticky = () => {
-    if (window.scrollY >= window.innerHeight) {
-      setSticky(true)
-    } else {
+  useScrollPosition(({ prevPos, currPos }) => {
+    // 這裡可以監視目前的捲軸狀態
+    console.log(currPos.x)
+    console.log(currPos.y)
+    if (window.scrollY >= currPos.y) {
       setSticky(false)
+    } else {
+      setSticky(true)
     }
-  }
-  window.addEventListener('scroll', navbarSticky)
+  })
+  // const [sticky, setSticky] = useState(false)
+
+  // const navbarSticky = () => {
+  //   if (window.scrollY >= window.innerHeight) {
+  //     setSticky(true)
+  //   } else {
+  //     setSticky(false)
+  //   }
+  // }
+  // window.addEventListener('scroll', navbarSticky)
 
   return (
     <>
@@ -39,21 +51,22 @@ function NavbarIndex() {
               <p className="small">來賓 您好</p>
             </div>
             <div className="ml-2 mt-2">
-              <a className="mx-0" href>
+              <Link to="/" className="mx-0">
                 <FaUser />
-              </a>
+                <i className="fas fa-user" />
+              </Link>
               <div />
             </div>
             <div className="ml-2 mt-2">
-              <a className="mx-0" href>
+              <Link to="/" className="mx-0">
                 <FaBookmark />
-              </a>
+              </Link>
               <p className="small mx-0 mb-2">(0)</p>
             </div>
             <div className="ml-2 mt-2">
-              <a className="mx-0" href>
+              <Link to="/" className="mx-0">
                 <FaShoppingCart />
-              </a>
+              </Link>
               <p className="small mx-0 mb-2">(0)</p>
             </div>
           </div>
@@ -73,7 +86,7 @@ function NavbarIndex() {
               <Link to="/event">EVENT</Link>
             </li>
             <li>
-              <Link to="#join-us">JOIN US</Link>
+              <Link to="/member">JOIN US</Link>
             </li>
           </ul>
         </div>

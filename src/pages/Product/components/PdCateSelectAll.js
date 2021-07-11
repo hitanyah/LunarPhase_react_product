@@ -4,10 +4,11 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 function PdCateSelectAll(props) {
   const [cateFlow, setCateFlow] = useState([])
+  const [changeFlow, setchangeFlow] = useState(0)
 
   async function getFlowFromServer() {
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/flow'
+    let url = 'http://localhost:3030/product/flow'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -36,9 +37,7 @@ function PdCateSelectAll(props) {
           cateFlow.map((value, index) => {
             return (
               <>
-                <Dropdown.Item href="#/action-3">
-                  {value.flowName}
-                </Dropdown.Item>
+                <Dropdown.Item>{value.flowName}</Dropdown.Item>
               </>
             )
           })}

@@ -28,22 +28,22 @@ function Navbar() {
               <p className="small">來賓 您好</p>
             </div>
             <div className="ml-2 mt-2">
-              <a className="mx-0" href>
+              <Link to="/" className="mx-0">
                 <FaUser />
                 <i className="fas fa-user" />
-              </a>
+              </Link>
               <div />
             </div>
             <div className="ml-2 mt-2">
-              <a className="mx-0" href>
+              <Link to="/" className="mx-0">
                 <FaBookmark />
-              </a>
+              </Link>
               <p className="small mx-0 mb-2">(0)</p>
             </div>
             <div className="ml-2 mt-2">
-              <a className="mx-0" href>
+              <Link to="/" className="mx-0">
                 <FaShoppingCart />
-              </a>
+              </Link>
               <p className="small mx-0 mb-2">(0)</p>
             </div>
           </div>
@@ -63,7 +63,7 @@ function Navbar() {
               <Link to="/event">EVENT</Link>
             </li>
             <li>
-              <Link to="#join-us">JOIN US</Link>
+              <Link to="/member">JOIN US</Link>
             </li>
           </ul>
         </div>

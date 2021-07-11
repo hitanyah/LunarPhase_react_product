@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // react-icon
 import { GrFacebookOption } from 'react-icons/gr'
@@ -9,20 +10,20 @@ function Navbar() {
     <>
       <footer>
         <div className="footer-box text-center">
-          <a href>
+          <Link to="/">
             <img
               className="footer-logo"
               src="/img/svg/logo-m-dark.svg"
               alt="lunar_phase"
             />
-          </a>
+          </Link>
           <div className="footer-sns mt-3">
-            <a className="mx-2" href>
+            <Link to="/" className="mx-2" href>
               <GrFacebookOption />
-            </a>
-            <a className="mx-2" href>
+            </Link>
+            <Link to="/" className="mx-2">
               <GrInstagram />
-            </a>
+            </Link>
           </div>
           <div className="footer-copyright">
             <p className="small">Copyright © JSMART All rights reserved.</p>

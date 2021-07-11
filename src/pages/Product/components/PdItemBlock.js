@@ -8,7 +8,15 @@ import { FaBookmark } from 'react-icons/fa'
 function PdItemBlock(props) {
   const [bookmark, setBookmark] = useState(false)
 
-  const { itemId, itemSize, flowImg, itemName, itemPrice, itemCoverImg } = props
+  const {
+    itemId,
+    itemSize,
+    flowImg,
+    itemName,
+    itemPrice,
+    optionName,
+    itemCoverImg,
+  } = props
 
   return (
     <>
@@ -20,7 +28,7 @@ function PdItemBlock(props) {
         </div>
         <div class="product-unit-hover">
           <button
-            onClick={() => setBookmark(!false)}
+            onClick={() => setBookmark(!bookmark)}
             class={bookmark ? 'product-add product-added' : 'product-add'}
           >
             <FaBookmark />
@@ -45,8 +53,9 @@ function PdItemBlock(props) {
             <h5 className="h5-item">{itemName}</h5>
           </Link>
         </div>
-        <div className="item-price text-left">
+        <div className="item-price text-left d-flex justify-between">
           <p className="p-price">$ {itemPrice}</p>
+          <p className="btn-option small my-auto ml-auto px-1">{optionName}</p>
         </div>
       </div>
     </>
