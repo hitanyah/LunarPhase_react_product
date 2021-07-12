@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { Link } from 'react-router-dom'
 
-function PdAlsoLove() {
+function PdTopPick() {
   // By CART
   const [mycart, setMycart] = useState([])
   const [productName, setProductName] = useState('') // 加入購物車會跳出的訊息，不使用可省略
@@ -55,7 +55,7 @@ function PdAlsoLove() {
     getPickFromServer()
   }, [])
 
-  return (
+  const display = (
     <>
       <div className="row pick-unit-wrap">
         {picks.length &&
@@ -96,6 +96,17 @@ function PdAlsoLove() {
       </div>
     </>
   )
+  return (
+    <>
+      <div className="top-pick container-fluid">
+        <div className="row flex-column">
+          <h4>Top Pick</h4>
+          <h6 className="h6-tc">熱門推薦</h6>
+          {display}
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default PdAlsoLove
+export default PdTopPick

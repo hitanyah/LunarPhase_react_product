@@ -49,7 +49,10 @@ function ProductDetail() {
         products.map((value, index) => {
           return (
             <PdDetailBlock
+              itemId={value.itemId}
               itemName={value.itemName}
+              itemCoverImg={value.itemCoverImg}
+              itemImg={value.itemImg}
               itemSize={value.itemSize}
               flowName={value.flowName}
               flowImg={value.flowImg}
@@ -77,7 +80,14 @@ function ProductDetail() {
       <PdInfoPad />
 
       <PdLinkKit />
-      <PdAlsoLove />
+
+      <div className="top-pick you-love container-fluid">
+        <div className="row flex-column">
+          <h4>You’ll also Love</h4>
+          <h6 className="h6-tc">專屬推薦</h6>
+          <PdAlsoLove />
+        </div>
+      </div>
 
       <ArticleCard />
       <div className="container-fluid">

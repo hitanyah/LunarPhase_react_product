@@ -6,6 +6,31 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { FaBookmark } from 'react-icons/fa'
 
 function PdItemBlock(props) {
+  // By CART
+  const [mycart, setMycart] = useState([])
+  const [productName, setProductName] = useState('') // 加入購物車會跳出的訊息，不使用可省略
+
+  const updateCartToLocalStorage = (item) => {
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const index = currentCart.findIndex((v) => v.id === item.id)
+
+    if (index > -1) {
+      //currentCart[index].amount++
+      setProductName('這個商品已經加過了')
+
+      return
+    } else {
+      currentCart.push(item)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+
+    // 設定資料
+    setMycart(currentCart)
+    setProductName('產品：' + item.name + '已成功加入購物車')
+  }
+
+  //
   const [bookmark, setBookmark] = useState(false)
 
   const {
@@ -34,7 +59,17 @@ function PdItemBlock(props) {
             <FaBookmark />
           </button>
           <br />
-          <button class="product-add">
+          <button
+            onClick={() => {
+              updateCartToLocalStorage({
+                id: itemId, //傳itemId
+                name: itemName,
+                amount: 1, //傳Qty
+                price: itemPrice,
+              })
+            }}
+            class="product-add"
+          >
             <FaShoppingCart />
           </button>
         </div>
