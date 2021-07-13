@@ -36,6 +36,12 @@ function PdCateTop() {
           熱門活動
         </button> */}
         <button
+          onClick={() => setSelectCateId('0')}
+          className="pd-category-btn"
+        >
+          全部商品
+        </button>
+        <button
           onClick={() => setSelectCateId('1')}
           className="pd-category-btn"
         >
@@ -65,12 +71,6 @@ function PdCateTop() {
           className="pd-category-btn"
         >
           生理褲
-        </button>
-        <button
-          onClick={() => setSelectCateId('0')}
-          className="pd-category-btn"
-        >
-          全部商品
         </button>
       </div>
 

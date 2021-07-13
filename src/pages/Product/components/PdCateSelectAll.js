@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 function PdCateSelectAll(props) {
   const [cateFlow, setCateFlow] = useState([])
-  const [changeFlow, setchangeFlow] = useState(0)
+  // const [changeFlow, setchangeFlow] = useState(0)
 
   async function getFlowFromServer() {
     // 連接的伺服器資料網址
@@ -15,7 +15,7 @@ function PdCateSelectAll(props) {
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
     const response = await fetch(request)
@@ -32,7 +32,11 @@ function PdCateSelectAll(props) {
 
   let display = (
     <>
-      <DropdownButton id="dropdownMenu1n" className="mx-3" title="依流量選擇">
+      <DropdownButton
+        id="dropdownMenu1n"
+        className="custom-btn mx-3"
+        title="依流量選擇"
+      >
         {cateFlow.length &&
           cateFlow.map((value, index) => {
             return (

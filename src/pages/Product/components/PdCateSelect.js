@@ -3,19 +3,22 @@ import React, { useState, useEffect } from 'react'
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 
-function PdCateSelect() {
+function PdCateSelect(props) {
+  const { cateOption } = props
+
   const [cateFlow, setCateFlow] = useState([])
 
   async function getFlowFromServer() {
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/flow'
+    const url =
+      'http://localhost:3030/product/category-select/' + { cateOption }
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
     const response = await fetch(request)

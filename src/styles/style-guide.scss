@@ -57,7 +57,7 @@ a:hover {
   background-color: #f7f7ee;
   text-align: center;
   box-shadow: 0px 3px 8px -5px #38384455;
-  padding: 20px 140px;
+  padding: 10px 140px;
   margin: 0;
   z-index: 999;
 }
@@ -67,17 +67,21 @@ a:hover {
   }
 }
 .sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
+  left: 0;
   z-index: 999;
 }
 .nav-logo {
   height: 36px;
-  margin-top: -16px;
+  // margin-top: -5px;
 }
 .nav-logo:hover {
   opacity: 0.6;
   transition: 0.3s;
+}
+.nav-member-act {
+  margin-top: 5px;
 }
 .nav-bar-bottom > ul > li > a {
   position: relative;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Product.scss'
@@ -15,8 +15,18 @@ import PdCateTop from './components/PdCateTop'
 import PdTopPick from './components/PdTopPick'
 import PdItemsAll from './components/PdItemsAll'
 import PdItemsPd from './components/PdItemsPd'
+import PdCateSelectAll from './components/PdCateSelectAll'
+import PdCateSelectCate from './components/PdCateSelectCate'
+import PdCateSelect from './components/PdCateSelect'
 
 function Product(props) {
+  const [selectCateId, setSelectCateId] = useState(0)
+  const [getItem, setGetItem] = useState('0')
+
+  // useEffect(()=>{
+
+  // },[])
+
   return (
     <>
       <Navbar />
@@ -28,10 +38,75 @@ function Product(props) {
       <div className="container-fluid">
         <div className="row flex-column">
           <h4>PRODUCT</h4>
-          <PdCateTop />
+          <div className="product-category d-flex flex-column flex-sm-row justify-content-between py-0 px-0 px-lg-5">
+            {/* <button
+          onClick={() => setClicked(!clicked)}
+          className={
+            clicked ? 'pd-category-btn pd-category-selected' : 'pd-category-btn'
+          }
+        >
+          熱門活動
+        </button> */}
+            <button
+              onClick={() => setSelectCateId(0)}
+              className="pd-category-btn"
+            >
+              全部商品
+            </button>
+            <button
+              onClick={() => setSelectCateId(1)}
+              className="pd-category-btn"
+            >
+              衛生棉
+            </button>
+            <button
+              onClick={() => setSelectCateId(2)}
+              className="pd-category-btn"
+            >
+              衛生棉條
+            </button>
+            <button
+              onClick={() => setSelectCateId(3)}
+              className="pd-category-btn"
+            >
+              布衛生棉
+            </button>
+            <button
+              onClick={() => setSelectCateId(4)}
+              className="pd-category-btn"
+            >
+              月亮杯
+            </button>
+            <button
+              onClick={() => setSelectCateId(5)}
+              className="pd-category-btn"
+            >
+              生理褲
+            </button>
+          </div>
+          {selectCateId === 0 && (
+            <PdCateSelectAll setSelectCateId={setSelectCateId} />
+          )}
+          {selectCateId === 1 && (
+            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+          )}
+          {selectCateId === 2 && (
+            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+          )}
+          {selectCateId === 3 && (
+            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+          )}
+          {selectCateId === 4 && (
+            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+          )}
+          {selectCateId === 5 && (
+            <PdCateSelect setSelectCateId={setSelectCateId} />
+          )}
+
+          {/* <PdCateTop /> */}
         </div>
-        {/* <PdItemsAll /> */}
-        <PdItemsPd />
+        <PdItemsAll />
+        {/* <PdItemsPd /> */}
       </div>
       {/* ----- top pick ----- */}
       <PdTopPick />

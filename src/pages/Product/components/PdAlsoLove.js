@@ -39,7 +39,7 @@ function PdAlsoLove() {
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
 

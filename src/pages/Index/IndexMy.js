@@ -29,12 +29,12 @@ function Index() {
             />
           </h1>
           <div className="index-top-sns">
-            <Link className="mr-3" to="https://www.facebook.com/IIIEDU.TW">
+            <a href="https://www.facebook.com/IIIEDU.TW" className="mr-3">
               <GrFacebookOption />
-            </Link>
-            <Link to="https://www.iiiedu.org.tw/">
+            </a>
+            <a href="https://www.iiiedu.org.tw/">
               <GrInstagram />
-            </Link>
+            </a>
           </div>
           <nav className="index-top-menu">
             <ul className="d-flex flex-column index-top-nav align-items-end">

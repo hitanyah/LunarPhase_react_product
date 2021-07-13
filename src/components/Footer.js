@@ -18,12 +18,12 @@ function Navbar() {
             />
           </Link>
           <div className="footer-sns mt-3">
-            <Link to="/" className="mx-2" href>
+            <a href="https://www.facebook.com/IIIEDU.TW" className="mx-2">
               <GrFacebookOption />
-            </Link>
-            <Link to="/" className="mx-2">
+            </a>
+            <a href="https://www.iiiedu.org.tw/" className="mx-2">
               <GrInstagram />
-            </Link>
+            </a>
           </div>
           <div className="footer-copyright">
             <p className="small">Copyright © JSMART All rights reserved.</p>

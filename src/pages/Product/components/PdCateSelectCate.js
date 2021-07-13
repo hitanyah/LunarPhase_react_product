@@ -5,6 +5,8 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 function PdCateSelectCate(props) {
   // const { setSelectCateId } = props
+  console.log(props)
+  console.log(props.setSelectCateId)
   // const selectCateId = setSelectCateId
   // console.log(selectCateId)
 
@@ -13,14 +15,15 @@ function PdCateSelectCate(props) {
   async function getCateOptionFromServer() {
     // 連接的伺服器資料網址
     const url =
-      'http://localhost:3030/product/category-select/' + props.setSelectCateId
+      // 'http://localhost:3030/product/category-select/' + setSelectCateId
+      'http://localhost:3030/product/category-select/' + props
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
+        'Content-Type': 'application/json',
       }),
     })
     const response = await fetch(request)
@@ -35,7 +38,7 @@ function PdCateSelectCate(props) {
     getCateOptionFromServer()
   }, [])
 
-  let ButtonTitle = '衛生棉' + props.setSelectCateId
+  let ButtonTitle = '衛生棉'
 
   // let ButtonTitle = `{cateOption.categoryNameParent}`
 
