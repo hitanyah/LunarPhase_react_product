@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 // react-icon
-import { FaShoppingCart } from 'react-icons/fa'
-import { FaUser } from 'react-icons/fa'
-import { FaBookmark } from 'react-icons/fa'
+import { FaShoppingCart, FaUser, FaBookmark } from 'react-icons/fa'
 
 function Navbar() {
+  const [sticky, setSticky] = useState(false)
+
+  useEffect(() => {
+    window.onscroll = function () {
+      navbarSticky()
+    }
+    const navbar = document.getElementById('navbar')
+    const sticky = navbar.offsetTop
+    function navbarSticky() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add('sticky')
+        setSticky(true)
+      } else {
+        navbar.classList.remove('sticky')
+      }
+    }
+    window.onscroll = function () {
+      navbarSticky()
+    }
+  }, [])
   return (
     <>
-      <nav id="navbar" className="nav-bar sticky">
+      <nav id="navbar" className={sticky ? 'nav-bar sticky' : 'nav-bar'}>
         <div className="nav-bar-top d-flex">
           <div className="col-4" />
           <div className="col-4 d-flex justify-content-center">

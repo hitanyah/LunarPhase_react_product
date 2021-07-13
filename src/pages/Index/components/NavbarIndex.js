@@ -1,24 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+// import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 // react-icon
-import { FaShoppingCart } from 'react-icons/fa'
-import { FaUser } from 'react-icons/fa'
-import { FaBookmark } from 'react-icons/fa'
+import { FaShoppingCart, FaUser, FaBookmark } from 'react-icons/fa'
 
 function NavbarIndex() {
   const [sticky, setSticky] = useState(false)
 
-  useScrollPosition(({ prevPos, currPos }) => {
-    // 這裡可以監視目前的捲軸狀態
-    console.log(currPos.x)
-    console.log(currPos.y)
-    if (window.scrollY >= currPos.y) {
-      setSticky(false)
-    } else {
-      setSticky(true)
+  useEffect(() => {
+    window.onscroll = function () {
+      navbarSticky()
     }
-  })
+    const navbar = document.getElementById('navbar')
+    const sticky = navbar.offsetTop
+    function navbarSticky() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add('sticky')
+        setSticky(true)
+      } else {
+        navbar.classList.remove('sticky')
+      }
+    }
+    window.onscroll = function () {
+      navbarSticky()
+    }
+  }, [])
+
+  // ----1
+  // const [sticky, setSticky] = useState(false)
+
+  // useScrollPosition(({ prevPos, currPos }) => {
+  //   // 這裡可以監視目前的捲軸狀態
+  //   console.log(currPos.x)
+  //   console.log(currPos.y)
+  //   if (window.scrollY >= currPos.y) {
+  //     setSticky(false)
+  //   } else {
+  //     setSticky(true)
+  //   }
+  // })
+
+  // ----2
   // const [sticky, setSticky] = useState(false)
 
   // const navbarSticky = () => {

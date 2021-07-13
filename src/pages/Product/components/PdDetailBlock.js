@@ -28,9 +28,7 @@ function PdDetailBlock(props) {
     setProductName('產品：' + item.name + '已成功加入購物車')
   }
 
-  const [qty, setQty] = useState(1)
-  const [bookmark, setBookmark] = useState(false)
-
+  //
   const {
     itemId,
     itemName,
@@ -44,6 +42,10 @@ function PdDetailBlock(props) {
     optionName,
   } = props
 
+  const [qty, setQty] = useState(1)
+  const [bookmark, setBookmark] = useState(false)
+  const [changeImg, setChangImg] = useState(itemCoverImg)
+
   // 把多圖路徑字串變成陣列
   console.log(itemImg)
   const mutiImgArray = itemImg.split(',')
@@ -55,14 +57,20 @@ function PdDetailBlock(props) {
         <div className="item row justify-content-between">
           <div className="item-pic-wrap d-flex col-12 col-md-6">
             <div className="item-pic-select col-2 mx-2 p-0 ">
-              <button className="item-pic-select-dot mb-3 p-0">
+              <button
+                onClick={() => setChangImg(itemCoverImg)}
+                className="item-pic-select-dot mb-3 p-0"
+              >
                 <img src={`/img/Product/${itemCoverImg}`} alt="" />
               </button>
               {mutiImgArray.length &&
                 mutiImgArray.map((value, index) => {
                   return (
                     <>
-                      <button className="item-pic-select-dot mb-3 p-0">
+                      <button
+                        onClick={() => setChangImg(value)}
+                        className="item-pic-select-dot mb-3 p-0"
+                      >
                         <img src={`/img/Product/${value}`} alt="" />
                       </button>
                     </>
@@ -70,7 +78,7 @@ function PdDetailBlock(props) {
                 })}
             </div>
             <div className="item-pic">
-              <img src={`/img/Product/${itemCoverImg}`} alt="" />
+              <img src={`/img/Product/${changeImg}`} alt="" />
             </div>
           </div>
           <div className="item-info-wrap text-left col-12 col-md-6 mt-5 mt-md-0 pl-5">

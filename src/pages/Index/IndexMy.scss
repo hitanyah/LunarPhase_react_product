@@ -523,6 +523,9 @@
   /*Linear gradient... */
   background: radial-gradient(at center, #f7f7ee, #fdd2bb);
 }
+.index-event-unit {
+  margin: 0;
+}
 .index-event-unit-img {
   height: 320px;
   width: 100%;
@@ -530,6 +533,22 @@
 }
 .index-event-block {
   width: 120px;
+}
+.index-arrow {
+  background: none;
+  border: none;
+  font-size: 30px;
+}
+@media (max-width: 960px) {
+  .index-event-more,
+  .index-event-block {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .index-arrow {
+    display: none;
+  }
 }
 /* ---banner--- */
 .banner {

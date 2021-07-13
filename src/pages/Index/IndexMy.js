@@ -4,7 +4,7 @@ import './IndexMy.scss'
 
 // component
 import HeroSlider from './IndexHeroSlider'
-import NavbarIndex from './components/NavbarIndex'
+import Navbar from '../../components/Navbar'
 
 // bootstrap
 // import Button from 'react-bootstrap/Button'
@@ -68,22 +68,20 @@ function Index() {
           </div>
           <div className="index-news-bar d-flex my-auto">
             <Link className="index-news-bar-info my-auto py-0" to="">
-              新品上市 限時免運中
+              盈月杯新登場
             </Link>
-            {/* <div className="btn-soft-green mx-auto">
-              <a href>SHOP NOW</a>
-            </div> */}
           </div>
+          {/* <div className="btn-soft-green mx-auto">
+            <a href>SHOP NOW</a>
+          </div> */}
         </div>
         {/* carousel */}
-        <div className="index-hero-slider">
-          <HeroSlider />
-        </div>
+        <HeroSlider />
       </header>
 
       {/* NAVBAR */}
 
-      <NavbarIndex />
+      <Navbar />
 
       {/* ABOUT */}
       <div id="about" className="index-about container-fluid">
@@ -153,11 +151,11 @@ function Index() {
           <div className="col-12 row index-product-unit-wrap justify-content-between mx-auto">
             <div className="index-product-unit col-12 col-md-2 mt-md-5">
               <div className="index-product-moon-frame mx-auto">
-                <a href>
-                  <div className="index-moon moon1">
-                    <img src="/img/Index/panties.svg" alt="" />
-                  </div>
-                </a>
+                {/* <a href> */}
+                <div className="index-moon moon1">
+                  <img src="/img/Index/panties.svg" alt="" />
+                </div>
+                {/* </a> */}
               </div>
               <div className="index-product-link">
                 <a href>
@@ -174,9 +172,9 @@ function Index() {
                 </a>
               </div>
               <div className="index-product-link">
-                <a href>
-                  <h6 className="h6-tc">布衛生棉</h6>
-                </a>
+                {/* <a href> */}
+                <h6 className="h6-tc">布衛生棉</h6>
+                {/* </a> */}
               </div>
             </div>
             <div className="index-product-unit col-12 col-md-2 ">
@@ -188,9 +186,9 @@ function Index() {
                 </a>
               </div>
               <div className="index-product-link">
-                <a href>
-                  <h6 className="h6-tc">衛生棉</h6>
-                </a>
+                {/* <a href> */}
+                <h6 className="h6-tc">衛生棉</h6>
+                {/* </a> */}
               </div>
             </div>
             <div className="index-product-unit col-12 col-md-2 mt-3 mt-md-3">
@@ -202,29 +200,29 @@ function Index() {
                 </a>
               </div>
               <div className="index-product-link">
-                <a href>
-                  <h6 className="h6-tc">衛生棉條</h6>
-                </a>
+                {/* <a href> */}
+                <h6 className="h6-tc">衛生棉條</h6>
+                {/* </a> */}
               </div>
             </div>
             <div className="index-product-unit col-12 col-md-2 mt-3 mt-md-5">
               <div className="index-product-moon-frame mx-auto">
-                <a href>
-                  <div className="index-moon moon5">
-                    <img src="/img/Index/menstrual-cup.svg" alt="" />
-                  </div>
-                </a>
+                {/* <a href> */}
+                <div className="index-moon moon5">
+                  <img src="/img/Index/menstrual-cup.svg" alt="" />
+                </div>
+                {/* </a> */}
               </div>
               <div className="index-product-link">
-                <a href>
-                  <h6 className="h6-tc">月亮杯</h6>
-                </a>
+                {/* <a href> */}
+                <h6 className="h6-tc">月亮杯</h6>
+                {/* </a> */}
               </div>
             </div>
           </div>
           <div className="col text-center">
             <button className="btn-soft-pink">
-              <a href>SHOP ALL</a>
+              <Link to="/product">SHOP ALL</Link>
             </button>
           </div>
         </div>
@@ -241,137 +239,137 @@ function Index() {
           <div className="index-article-topic row col-12">
             <div className="index-article-topic-content text-left col-12 col-md-6 col-lg-8 ml-0 pl-0 pr-0 pr-md-3">
               <p className="index-article-date mb-1">2020.02.20</p>
-              <a href>
+              <Link to="/article">
                 <h4 className="h4-tc">文章標題</h4>
                 <p className="p-tc">
                   直到是否權力心理線上以下男人中央廠商請求參考面前幻想歌手夫妻，一把魯蛇記錄小七我的心複雜一週大會更大專用討論當中接觸品質，有的對於觀察做什麼一項不然，見面很快最好最高怎麼辦客人就好一絲各地，過來就會一看犯罪明年一天伺服器究竟都會傳統那裡否則，對不起廣泛房。
                 </p>
-              </a>
+              </Link>
               <div className="d-flex justify-content-between pb-0">
                 <div className="btn-read text-center">
-                  <a href>read</a>
+                  <Link href>read</Link>
                 </div>
                 <div>
-                  <a className="btn-tag ml-2" href>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
-                  <a className="btn-tag ml-2" href>
+                  </Link>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
-                  <a className="btn-tag ml-2" href>
+                  </Link>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="index-article-topic-img col-12 col-md-6 col-lg-4 p-0 my-4 my-md-auto">
-              <a href>
+              <Link to="/article">
                 <img src="/img/Index/hero001.jpg" alt="" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="index-article-unit-wrap row text-left col-12">
             <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
               <p className="index-article-date mb-1">2020.02.20</p>
               <div className="index-article-unit-img col-12 p-0">
-                <a href>
+                <Link to="/article">
                   <img src="/img/Index/hero001.jpg" alt="" />
                   <h5 className="h5-tc my-2">文章標題222</h5>
-                </a>
+                </Link>
               </div>
               <div className="d-flex justify-content-between align-items-end pb-0 mt-4">
                 <div className="btn-read text-center">
-                  <a href>read</a>
+                  <Link to="/article">read</Link>
                 </div>
                 <div className="text-right">
-                  <a className="btn-tag ml-2" href>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
-                  <a className="btn-tag ml-2" href>
+                  </Link>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="border-right-2 index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
               <p className="index-article-date mb-1">2020.02.20</p>
               <div className="index-article-unit-img col-12 p-0">
-                <a href>
+                <Link to="/article">
                   <img src="/img/Index/hero001.jpg" alt="" />
                   <h5 className="h5-tc my-2">文章標題222</h5>
-                </a>
+                </Link>
               </div>
               <div className="d-flex justify-content-between align-items-end pb-0 mt-4">
                 <div className="btn-read text-center">
-                  <a href>read</a>
+                  <Link to="/article">read</Link>
                 </div>
                 <div className="text-right">
-                  <a className="btn-tag ml-2" href>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
-                  <a className="btn-tag ml-2" href>
+                  </Link>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
               <p className="index-article-date mb-1">2020.02.20</p>
               <div className="index-article-unit-img col-12 p-0">
-                <a href>
+                <Link to="/article">
                   <img src="/img/Index/hero001.jpg" alt="" />
                   <h5 className="h5-tc my-2">文章標題222</h5>
-                </a>
+                </Link>
               </div>
               <div className="d-flex justify-content-between align-items-end pb-0 mt-4">
                 <div className="btn-read text-center">
-                  <a href>read</a>
+                  <Link to="/article">read</Link>
                 </div>
                 <div className="text-right">
-                  <a className="btn-tag ml-2" href>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
-                  <a className="btn-tag ml-2" href>
+                  </Link>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
               <p className="index-article-date mb-1">2020.02.20</p>
               <div className="index-article-unit-img col-12 p-0">
-                <a href>
+                <Link to="/article">
                   <img src="/img/Index/hero001.jpg" alt="" />
                   <h5 className="h5-tc my-2">文章標題222</h5>
-                </a>
+                </Link>
               </div>
               <div className="d-flex justify-content-between align-items-end pb-0 mt-4">
                 <div className="btn-read text-center">
-                  <a href>read</a>
+                  <Link to="/article">read</Link>
                 </div>
                 <div className="text-right">
-                  <a className="btn-tag ml-2" href>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
-                  <a className="btn-tag ml-2" href>
+                  </Link>
+                  <Link to="/article" className="btn-tag ml-2">
                     #123
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
           <div className="index-article-footer d-flex justify-content-between mx-0 px-0 col-12">
             <div className="d-flex">
-              <a className="btn-prev mr-3" href>
+              <Link to="/article" className="btn-prev mr-3">
                 <i className="fas fa-chevron-left" />
-              </a>
-              <a className="btn-next" href>
+              </Link>
+              <Link to="/article" className="btn-next">
                 <i className="fas fa-chevron-right" />
-              </a>
+              </Link>
             </div>
-            <a className="btn-more" href>
+            <Link to="/article" className="btn-more">
               more
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -410,31 +408,69 @@ function Index() {
       <div id="event" className="index-event radial-gradient container-fluid">
         <div className="index-event-top d-flex justify-content-between">
           <div className="index-event-block" />
-          <h2>EVENT</h2>
-          <div className="btn-more">
+          <Link className="mx-auto" to="/event">
+            <h2>EVENT</h2>
+          </Link>
+          <div className="index-event-more btn-more">
             <Link to="/event">more</Link>
           </div>
         </div>
         <h6 className="h6-tc text-center">活動快報</h6>
         <div className="d-flex mt-5">
-          <button className="mr-3">
+          <button className="index-arrow">
             <VscChevronLeft />
           </button>
           <div className="index-event-content row m-0 justify-content-between">
             <div className="index-event-unit-wrap d-flex justify-content-between">
-              <div className="index-event-unit">
-                <div className="col-4">
+              <div className="index-event-unit row">
+                <div className="col-12 col-lg-4">
                   <p className="index-article-date mb-1">2020.02.20</p>
-                  <a href>
+                  <Link href>
                     <img
                       className="index-event-unit-img"
                       src="/img/Index/hero003.jpg"
                       alt=""
                     />
-                  </a>
-                  <a href>
+                  </Link>
+                  <Link href>
                     <h5 className="h5-tc my-2">文章標題</h5>
-                  </a>
+                  </Link>
+                  <p className="p-tc">
+                    轉載位於需要圖書館本身超市氣息房間真實性，男性出去學生探索老婆一股，緊張直到是這樣或許平時職位男生你會，關心否則蘋果調查成立書庫當前填寫作者要是飲食。
+                  </p>
+                  <div className="underline" />
+                  <p>報名中</p>
+                </div>
+                <div className="col-12 col-lg-4">
+                  <p className="index-article-date mb-1">2020.02.20</p>
+                  <Link href>
+                    <img
+                      className="index-event-unit-img"
+                      src="/img/Index/hero003.jpg"
+                      alt=""
+                    />
+                  </Link>
+                  <Link href>
+                    <h5 className="h5-tc my-2">文章標題</h5>
+                  </Link>
+                  <p className="p-tc">
+                    轉載位於需要圖書館本身超市氣息房間真實性，男性出去學生探索老婆一股，緊張直到是這樣或許平時職位男生你會，關心否則蘋果調查成立書庫當前填寫作者要是飲食。
+                  </p>
+                  <div className="underline" />
+                  <p>報名中</p>
+                </div>
+                <div className="col-12 col-lg-4">
+                  <p className="index-article-date mb-1">2020.02.20</p>
+                  <Link href>
+                    <img
+                      className="index-event-unit-img"
+                      src="/img/Index/hero003.jpg"
+                      alt=""
+                    />
+                  </Link>
+                  <Link href>
+                    <h5 className="h5-tc my-2">文章標題</h5>
+                  </Link>
                   <p className="p-tc">
                     轉載位於需要圖書館本身超市氣息房間真實性，男性出去學生探索老婆一股，緊張直到是這樣或許平時職位男生你會，關心否則蘋果調查成立書庫當前填寫作者要是飲食。
                   </p>
@@ -444,7 +480,7 @@ function Index() {
               </div>
             </div>
           </div>
-          <button className="">
+          <button className="index-arrow">
             <VscChevronRight />
           </button>
         </div>
@@ -454,17 +490,17 @@ function Index() {
       </div>
       <div className="join-us container text-center">
         <h2>Join Us</h2>
-        <p className="p-tc">和我們一起探索更多生理期的大秘密</p>
-        <button className="btn-soft-green">SIGN IN</button>
+        <p className="p-tc mb-5">和我們一起探索更多生理期的大秘密</p>
+        <button className="btn-soft-green mt-5">LOG IN</button>
       </div>
       {/* FOOTER */}
       <div className="index-footer container-fluid">
         <footer className="index-footer-top row">
           <div className="row m-0 p-0 justify-content-between col-12">
             <div className="index-footer-logo my-auto col-12 col-md-2">
-              <a href="#top">
+              <Link to="#top">
                 <img src="/img/Index/logo-s-dark.svg" alt="" />
-              </a>
+              </Link>
             </div>
             <nav className="my-auto col-12 col-md-10 px-0">
               <ul className="d-flex justify-content-center justify-content-md-end  my-3 my-md-0 px-auto px-md-0 col-12">
@@ -484,7 +520,7 @@ function Index() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="event" className="footer-a ml-3">
+                  <Link to="/event" className="footer-a ml-3">
                     EVENT
                   </Link>
                 </li>
