@@ -16,7 +16,7 @@ function PdItemsAll(props) {
     // let pageUrl = `?page=${params.page}`
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/'
+    const url = 'http://localhost:4567/product/'
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'POST',
@@ -82,7 +82,6 @@ function PdItemsAll(props) {
         {/* page switch */}
         <div className="product-unit-page mt-5">
           <div className="btn-group" role="group" aria-label="Basic example">
-            <p>{cateIdPa}xx</p>
             <button
               onClick={() => {
                 const page = products.page - 1

@@ -48,7 +48,7 @@ function PdTopPick() {
     // 開啟載入指示
     setDataLoading(true)
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/ranking/5'
+    const url = 'http://localhost:4567/product/ranking/5'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -111,10 +111,10 @@ function PdTopPick() {
                   <button
                     onClick={() => {
                       updateCartToLocalStorage({
-                        id: `{ value.itemId }`, //傳itemId
-                        name: `{value.itemName}`,
+                        id: `${value.itemId}`, //傳itemId
+                        name: `${value.itemName}`,
                         amount: 1, //傳Qty
-                        price: `{value.itemPrice}`,
+                        price: `${value.itemPrice}`,
                       })
                       alertCheck()
                     }}

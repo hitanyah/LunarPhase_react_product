@@ -8,7 +8,7 @@ function PdCateSelectAll(props) {
 
   async function getFlowFromServer() {
     // 連接的伺服器資料網址
-    let url = 'http://localhost:3030/product/flow'
+    let url = 'http://localhost:4567/product/flow'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {

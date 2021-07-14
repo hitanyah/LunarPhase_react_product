@@ -34,6 +34,7 @@ function PdItemBlock(props) {
   //
   const [bookmark, setBookmark] = useState(false)
 
+  // alert
   const alertCheck = () => {
     Swal.fire({
       position: 'center',

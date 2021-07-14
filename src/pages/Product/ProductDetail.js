@@ -6,7 +6,7 @@ import { useParams } from 'react-router'
 import './ProductDetail.scss'
 
 // component
-import Navbar from '../../components/Navbar'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Footer from '../../components/Footer'
 import PdDetailBlock from './components/PdDetailBlock'
 import PdInfoPad from './components/PdInfoPad'
@@ -21,7 +21,7 @@ function ProductDetail() {
 
   async function getPoductFromServer() {
     // 連接的伺服器資料網址
-    const url = `http://localhost:3030/product/${itemId}`
+    const url = `http://localhost:4567/product/${itemId}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -72,7 +72,7 @@ function ProductDetail() {
 
   return (
     <>
-      <Navbar />
+      <LunarPhaseNavbar />
       {/* items */}
       {display}
       {/* <PdDetailBlock /> */}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './Product.scss'
 
 // component
-import Navbar from '../../components/Navbar'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Footer from '../../components/Footer'
 import PdSlider from './components/PdSlider'
 import PdLinkArticle from './components/PdLinkArticle'
@@ -28,7 +28,7 @@ function Product(props) {
 
   return (
     <>
-      <Navbar />
+      <LunarPhaseNavbar />
       {/* breadcrumb */}
 
       {/* ----- carousel ----- */}

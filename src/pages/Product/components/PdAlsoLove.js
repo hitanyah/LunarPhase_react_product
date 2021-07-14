@@ -49,7 +49,7 @@ function PdAlsoLove() {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/ranking/3'
+    const url = 'http://localhost:4567/product/ranking/3'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -97,9 +97,9 @@ function PdAlsoLove() {
               <>
                 <div className=" flex-column pick-unit col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
                   <div className="pick-unit-img">
-                    <Link to={`/product-detail/${value.itemId}`}>
+                    <a href={`/product-detail/${value.itemId}`}>
                       <img src={`/img/Product/${value.itemCoverImg}`} alt="" />
-                    </Link>
+                    </a>
                   </div>
                   <div className="item-name mb-0">
                     <Link to={`/product-detail/${value.itemId}`}>
@@ -112,10 +112,10 @@ function PdAlsoLove() {
                   <button
                     onClick={() => {
                       updateCartToLocalStorage({
-                        id: `{ value.itemId }`, //傳itemId
-                        name: `{value.itemName}`,
+                        id: `${value.itemId}`, //傳itemId
+                        name: `${value.itemName}`,
                         amount: 1, //傳Qty
-                        price: `{value.itemPrice}`,
+                        price: `${value.itemPrice}`,
                       })
                       alertCheck()
                     }}

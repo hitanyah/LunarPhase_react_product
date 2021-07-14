@@ -11,7 +11,7 @@ function PdCateSelect(props) {
   async function getFlowFromServer() {
     // 連接的伺服器資料網址
     const url =
-      'http://localhost:3030/product/category-select/' + { cateOption }
+      'http://localhost:4567/product/category-select/' + { cateOption }
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
