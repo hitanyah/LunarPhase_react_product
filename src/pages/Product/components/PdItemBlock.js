@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 // react-icon
 import { FaShoppingCart } from 'react-icons/fa'
@@ -33,6 +34,29 @@ function PdItemBlock(props) {
   //
   const [bookmark, setBookmark] = useState(false)
 
+  const alertCheck = () => {
+    Swal.fire({
+      position: 'center',
+      // icon: 'question',
+      width: '30%',
+      imageUrl: '/img/svg/1103-confetti-outline.gif',
+      title: '已加入購物車',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
+  const alertMark = () => {
+    Swal.fire({
+      position: 'center',
+      // icon: 'question',
+      width: '30%',
+      imageUrl: '/img/svg/43-music-note-outline.gif',
+      title: '已加入收藏',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
+
   const {
     itemId,
     itemSize,
@@ -53,7 +77,10 @@ function PdItemBlock(props) {
         </div>
         <div class="product-unit-hover">
           <button
-            onClick={() => setBookmark(!bookmark)}
+            onClick={() => {
+              setBookmark(!bookmark)
+              alertMark()
+            }}
             class={bookmark ? 'product-add product-added' : 'product-add'}
           >
             <FaBookmark />
@@ -67,6 +94,7 @@ function PdItemBlock(props) {
                 amount: 1, //傳Qty
                 price: itemPrice,
               })
+              alertCheck()
             }}
             class="product-add"
           >

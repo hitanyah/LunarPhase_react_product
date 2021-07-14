@@ -11,17 +11,16 @@ import PdLinkArticle from './components/PdLinkArticle'
 
 // import PdAll from './components/PdAll'
 import PdLineHeart from './components/PdLineHeart'
-import PdCateTop from './components/PdCateTop'
+// import PdCateTop from './components/PdCateTop'
 import PdTopPick from './components/PdTopPick'
 import PdItemsAll from './components/PdItemsAll'
-import PdItemsPd from './components/PdItemsPd'
+// import PdItemsPd from './components/PdItemsPd'
 import PdCateSelectAll from './components/PdCateSelectAll'
 import PdCateSelectCate from './components/PdCateSelectCate'
 import PdCateSelect from './components/PdCateSelect'
 
 function Product(props) {
   const [selectCateId, setSelectCateId] = useState(0)
-  const [getItem, setGetItem] = useState('0')
 
   // useEffect(()=>{
 
@@ -85,27 +84,33 @@ function Product(props) {
             </button>
           </div>
           {selectCateId === 0 && (
-            <PdCateSelectAll setSelectCateId={setSelectCateId} />
+            <PdCateSelectAll selectCateId={setSelectCateId} />
           )}
           {selectCateId === 1 && (
-            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+            <PdCateSelectCate selectCateId={setSelectCateId} />
           )}
           {selectCateId === 2 && (
-            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+            <PdCateSelectCate selectCateId={setSelectCateId} />
           )}
           {selectCateId === 3 && (
-            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+            <PdCateSelectCate selectCateId={setSelectCateId} />
           )}
           {selectCateId === 4 && (
-            <PdCateSelectCate setSelectCateId={setSelectCateId} />
+            <PdCateSelectCate selectCateId={setSelectCateId} />
           )}
           {selectCateId === 5 && (
-            <PdCateSelect setSelectCateId={setSelectCateId} />
+            <PdCateSelect selectCateId={setSelectCateId} />
           )}
 
           {/* <PdCateTop /> */}
         </div>
-        <PdItemsAll />
+        {selectCateId === 0 && <PdItemsAll cateIdPa={selectCateId} />}
+        {selectCateId === 1 && <PdItemsAll cateIdPa={selectCateId} />}
+        {selectCateId === 2 && <PdItemsAll cateIdPa={selectCateId} />}
+        {selectCateId === 3 && <PdItemsAll cateIdPa={selectCateId} />}
+        {selectCateId === 4 && <PdItemsAll cateIdPa={selectCateId} />}
+        {selectCateId === 5 && <PdItemsAll cateIdPa={selectCateId} />}
+        {/* <PdItemsAll /> */}
         {/* <PdItemsPd /> */}
       </div>
       {/* ----- top pick ----- */}
@@ -142,22 +147,22 @@ function Product(props) {
         </div>
 
         <div className="row justify-content-between">
-          <div className="order-link col-12 col-md-6">
+          <div className="product-order-link col-12 col-md-6">
             <Link to="">
-              <div className="order-link-box">
+              <div className="product-order-link-box">
                 <img src="/img/Product/items002.jpg" alt="" />
-                <div className="order-link-info">
+                <div className="product-order-link-info">
                   <h5 className="h5-tc">月訂專區</h5>
                   <p className="mx-0">生理期採購新提案</p>
                 </div>
               </div>
             </Link>
           </div>
-          <div className="order-link col-12 col-md-6">
+          <div className="product-order-link col-12 col-md-6">
             <Link to="">
-              <div className="order-link-box">
+              <div className="product-order-link-box">
                 <img src="/img/Product/items003.jpg" alt="" />
-                <div className="order-link-info">
+                <div className="product-order-link-info">
                   <h5 className="h5-tc">如何挑選</h5>
                   <p className="mx-0">試試小遊戲 測出最適合妳的生理用品</p>
                 </div>

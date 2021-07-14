@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import PdItemBlock from './PdItemBlock'
 
-function PdItemsAll() {
+function PdItemsAll(props) {
+  const { cateIdPa } = props
+  const catePa = cateIdPa
   const [products, setProducts] = useState([])
-  // const [dataLoading, setDataLoading] = useState(false)
-  const [page, setPage] = useState(1)
+  //   const [dataLoading, setDataLoading] = useState(false)
+  //   const [page, setPage] = useState(1)
 
   async function getPoductFromServer(params = {}) {
     // 開啟載入指示
@@ -33,28 +35,28 @@ function PdItemsAll() {
   }
 
   useEffect(() => {
-    getPoductFromServer()
+    getPoductFromServer({ catePa })
   }, [])
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setDataLoading(false)
-  //   }, 1000)
-  // }, [products])
+  //   useEffect(() => {
+  //     setTimeout(() => {
+  //       setDataLoading(false)
+  //     }, 1000)
+  //   }, [products])
 
   //列出頁數陣列
   let pageArray = Array.from(Array(products.totalPages).keys())
   console.log(pageArray)
 
-  // const loading = (
-  //   <>
-  //     <div className="d-flex justify-content-center">
-  //       <div className="spinner-border" role="status">
-  //         <span className="sr-only">Loading...</span>
+  //   const loading = (
+  //     <>
+  //       <div className="d-flex justify-content-center">
+  //         <div className="spinner-border" role="status">
+  //           {/* <span className="sr-only">Loading...</span> */}
+  //         </div>
   //       </div>
-  //     </div>
-  //   </>
-  // )
+  //     </>
+  //   )
 
   const display = (
     <>
@@ -80,7 +82,15 @@ function PdItemsAll() {
         {/* page switch */}
         <div className="product-unit-page mt-5">
           <div className="btn-group" role="group" aria-label="Basic example">
-            <button type="button" className="btn ">
+            <p>{cateIdPa}xx</p>
+            <button
+              onClick={() => {
+                const page = products.page - 1
+                getPoductFromServer({ page })
+              }}
+              type="button"
+              className={1 === products.page ? 'btn disabled' : 'btn'}
+            >
               &lt; PREV
             </button>
             {pageArray.map((i) => {
@@ -92,7 +102,7 @@ function PdItemsAll() {
                       getPoductFromServer({ page })
                     }}
                     type="button"
-                    className="btn "
+                    className="btn"
                   >
                     {page}
                   </button>
@@ -100,7 +110,16 @@ function PdItemsAll() {
               )
             })}
 
-            <button type="button" className="btn ">
+            <button
+              onClick={() => {
+                const page = products.page + 1
+                getPoductFromServer({ page })
+              }}
+              type="button"
+              className={
+                products.totalPages === products.page ? 'btn disabled' : 'btn'
+              }
+            >
               NEXT &gt;
             </button>
           </div>
@@ -109,7 +128,12 @@ function PdItemsAll() {
     </>
   )
 
-  return <>{display}</>
+  return (
+    <>
+      {display}
+      {/* {dataLoading ? loading : display} */}
+    </>
+  )
 }
 
 export default PdItemsAll

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Swal from 'sweetalert2'
 
 // react-icon
 import { FaRegBookmark } from 'react-icons/fa'
@@ -46,15 +47,39 @@ function PdDetailBlock(props) {
   const [bookmark, setBookmark] = useState(false)
   const [changeImg, setChangImg] = useState(itemCoverImg)
 
+  // alert
+  const alertCheck = () => {
+    Swal.fire({
+      position: 'center',
+      // icon: 'question',
+      width: '30%',
+      imageUrl: '/img/svg/1103-confetti-outline.gif',
+      title: '已加入購物車',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
+  // const alertMark = () => {
+  //   Swal.fire({
+  //     position: 'center',
+  //     // icon: 'question',
+  //     width: '30%',
+  //     imageUrl: '/img/svg/43-music-note-outline.gif',
+  //     title: '已加入收藏',
+  //     showConfirmButton: false,
+  //     timer: 1500,
+  //   })
+  // }
+
   // 把多圖路徑字串變成陣列
-  console.log(itemImg)
+  // console.log(itemImg)
   const mutiImgArray = itemImg.split(',')
-  console.log(mutiImgArray)
+  // console.log(mutiImgArray)
 
   return (
     <>
       <div className="container-fluid">
-        <div className="item row justify-content-between">
+        <div className="item-row row justify-content-between">
           <div className="item-pic-wrap d-flex col-12 col-md-6">
             <div className="item-pic-select col-2 mx-2 p-0 ">
               <button
@@ -130,11 +155,11 @@ function PdDetailBlock(props) {
             </div>
             <div className="item-qty d-flex justify-content-between">
               <h6 className>數量</h6>
-              <div className="qty-input input-group">
+              <div className="item-qty-input input-group">
                 <div className="input-group-btn">
                   <button
                     onClick={() => setQty(qty - 1)}
-                    className="btn "
+                    className={qty === 1 ? 'btn disablede' : 'btn'}
                     type="button"
                     id="qty-sub"
                   >
@@ -163,6 +188,7 @@ function PdDetailBlock(props) {
                     amount: qty, //傳Qty
                     price: itemPrice,
                   })
+                  alertCheck()
                 }}
                 className="btn-border-l"
               >

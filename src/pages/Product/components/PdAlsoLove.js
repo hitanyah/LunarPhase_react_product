@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function PdAlsoLove() {
   // By CART
@@ -29,10 +29,27 @@ function PdAlsoLove() {
 
   //
   const [picks, setPicks] = useState([])
+  const [dataLoading, setDataLoading] = useState(false)
+
+  //alert
+  const alertCheck = () => {
+    Swal.fire({
+      position: 'center',
+      // icon: 'question',
+      width: '30%',
+      imageUrl: '/img/svg/1103-confetti-outline.gif',
+      title: '已加入購物車',
+      showConfirmButton: false,
+      timer: 1500,
+    })
+  }
 
   async function getPickFromServer() {
+    // 開啟載入指示
+    setDataLoading(true)
+
     // 連接的伺服器資料網址
-    const url = 'http://localhost:3030/product/ranking'
+    const url = 'http://localhost:3030/product/ranking/3'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -55,7 +72,23 @@ function PdAlsoLove() {
     getPickFromServer()
   }, [])
 
-  return (
+  useEffect(() => {
+    setTimeout(() => {
+      setDataLoading(false)
+    }, 500)
+  }, [picks])
+
+  const loading = (
+    <>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          {/* <span className="sr-only">Loading...</span> */}
+        </div>
+      </div>
+    </>
+  )
+
+  const display = (
     <>
       <div className="row pick-unit-wrap">
         {picks.length &&
@@ -64,12 +97,12 @@ function PdAlsoLove() {
               <>
                 <div className=" flex-column pick-unit col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
                   <div className="pick-unit-img">
-                    <Link>
+                    <Link to={`/product-detail/${value.itemId}`}>
                       <img src={`/img/Product/${value.itemCoverImg}`} alt="" />
                     </Link>
                   </div>
                   <div className="item-name mb-0">
-                    <Link>
+                    <Link to={`/product-detail/${value.itemId}`}>
                       <h5 className="h5-item">{value.itemName}</h5>
                     </Link>
                   </div>
@@ -84,6 +117,7 @@ function PdAlsoLove() {
                         amount: 1, //傳Qty
                         price: `{value.itemPrice}`,
                       })
+                      alertCheck()
                     }}
                     className="btn-border-s mx-auto mt-4"
                   >
@@ -96,6 +130,8 @@ function PdAlsoLove() {
       </div>
     </>
   )
+
+  return <>{dataLoading ? loading : display}</>
 }
 
 export default PdAlsoLove

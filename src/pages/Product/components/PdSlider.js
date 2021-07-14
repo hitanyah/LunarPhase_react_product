@@ -9,36 +9,34 @@ function Product() {
           <Carousel.Item>
             <img
               className="product-carousel-img d-block w-100"
-              src="/img/Product/pd-hero03.jpg"
+              src="/img/Product/pd-hero02.jpg"
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>輕盈有機棉 舒服好自在</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="product-carousel-img d-block w-100"
-              src="/img/Product/pd-hero02.jpg"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
               <h3>盈月杯新登場</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p>專為亞洲女性設計尺寸，安心不易漏</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="product-carousel-img d-block w-100"
               src="/img/Product/pd-hero03.jpg"
-              alt="Third slide"
+              alt="Second slide"
             />
             <Carousel.Caption>
               <h3>布衛生棉1+1組合 優惠中</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+              <p>限時組合包，入手好時機</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="product-carousel-img d-block w-100"
+              src="/img/Product/pd-hero01.jpg"
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <h3>可重複利用的生理用品</h3>
+              <p>拋開濕悶，體會月亮褲的乾爽迷人</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

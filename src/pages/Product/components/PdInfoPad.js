@@ -4,7 +4,7 @@ function PdInfoPad() {
   return (
     <>
       <div className="item-content-top container-fluid">
-        <div className="row text-left justify-content-around align-item-center">
+        <div className="row item-content-point text-left justify-content-around align-item-center">
           <div className="pad-img col-12 col-md-6 ">
             <img src="/img/Product/pd-i-00.png" alt="" />
           </div>
