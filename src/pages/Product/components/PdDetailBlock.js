@@ -106,7 +106,7 @@ function PdDetailBlock(props) {
               <img src={`/img/Product/${changeImg}`} alt="" />
             </div>
           </div>
-          <div className="item-info-wrap text-left col-12 col-md-6 mt-5 mt-md-0 pl-5">
+          <div className="item-info-wrap text-left col-12 col-md-6 mt-5 mt-md-0 pl-md-5">
             <div className="item-name mb-3">
               <h5 className="h5-item-l">{itemName}</h5>
             </div>
@@ -179,7 +179,7 @@ function PdDetailBlock(props) {
                 </div>
               </div>
             </div>
-            <div className="add-cart col-12 pl-5">
+            <div className="add-cart col-12 pl-md-5">
               <button
                 onClick={() => {
                   updateCartToLocalStorage({
