@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { GrFacebookOption } from 'react-icons/gr'
 import { GrInstagram } from 'react-icons/gr'
 
-function Navbar() {
+function Footer() {
   return (
     <>
       <footer>
@@ -33,4 +33,4 @@ function Navbar() {
     </>
   )
 }
-export default Navbar
+export default Footer

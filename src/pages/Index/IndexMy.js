@@ -4,7 +4,7 @@ import './IndexMy.scss'
 
 // component
 import HeroSlider from './IndexHeroSlider'
-import Navbar from '../../components/Navbar'
+import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 
 // bootstrap
 // import Button from 'react-bootstrap/Button'
@@ -81,7 +81,7 @@ function Index() {
 
       {/* NAVBAR */}
 
-      <Navbar />
+      <LunarPhaseNavbar />
 
       {/* ABOUT */}
       <div id="about" className="index-about container-fluid">
