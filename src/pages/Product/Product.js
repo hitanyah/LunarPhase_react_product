@@ -8,15 +8,9 @@ import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 import Footer from '../../components/Footer'
 import PdSlider from './components/PdSlider'
 import PdLinkArticle from './components/PdLinkArticle'
-
-// import PdAll from './components/PdAll'
 import PdLineHeart from './components/PdLineHeart'
-// import PdCateTop from './components/PdCateTop'
 import PdTopPick from './components/PdTopPick'
 import PdItemsAll from './components/PdItemsAll'
-// import PdItemsPd from './components/PdItemsPd'
-import PdCateSelectAll from './components/PdCateSelectAll'
-import PdCateSelect from './components/PdCateSelect'
 
 function Product(props) {
   const [cateId, setCateId] = useState(0)
@@ -50,7 +44,6 @@ function Product(props) {
     <>
       <LunarPhaseNavbar />
       {/* breadcrumb */}
-
       {/* ----- carousel ----- */}
       <PdSlider />
       {/* ----- item category ----- */}
@@ -74,7 +67,7 @@ function Product(props) {
               月亮杯
             </button>
             <button onClick={() => setCateId(5)} className="pd-category-btn">
-              生理褲
+              月亮褲
             </button>
           </div>
           {/* {cateId === 0 && <PdCateSelectAll selectCateId={setCateId} />} */}
@@ -93,17 +86,14 @@ function Product(props) {
           {selectCateId === 5 && (
             <PdCateSelect selectCateId={setCateId} />
           )} */}
-
-          {/* <PdCateTop /> */}
         </div>
+        {/* ----- item List ----- */}
         {cateId === 0 && <PdItemsAll cateIdPa={cateId} />}
         {cateId === 1 && <PdItemsAll cateIdPa={cateId} />}
         {cateId === 2 && <PdItemsAll cateIdPa={cateId} />}
         {cateId === 3 && <PdItemsAll cateIdPa={cateId} />}
         {cateId === 4 && <PdItemsAll cateIdPa={cateId} />}
         {cateId === 5 && <PdItemsAll cateIdPa={cateId} />}
-        {/* <PdItemsAll /> */}
-        {/* <PdItemsPd /> */}
       </div>
       {/* ----- top pick ----- */}
       <PdTopPick />
@@ -141,7 +131,7 @@ function Product(props) {
 
         <div className="row justify-content-between">
           <div className="product-order-link col-12 col-md-6">
-            <Link to="">
+            <Link to="/kit">
               <div className="product-order-link-box">
                 <img src="/img/Product/items002.jpg" alt="" />
                 <div className="product-order-link-info">
@@ -152,7 +142,7 @@ function Product(props) {
             </Link>
           </div>
           <div className="product-order-link col-12 col-md-6">
-            <Link to="">
+            <Link to="/kit">
               <div className="product-order-link-box">
                 <img src="/img/Product/items003.jpg" alt="" />
                 <div className="product-order-link-info">

@@ -8,7 +8,7 @@ function PdLinkKit() {
         <div className="row shop-article my-auto py-3">
           <div className="article-img col-12 col-md-4 mb-3 mb-md-0 p-3">
             <Link to="/kit">
-              <img src="/img/Product/items002.jpg" alt="" />
+              <img src="/img/Product/items004.jpg" alt="" />
             </Link>
           </div>
           <div className="article-info col-12 col-md-8 text-left pl-3 pl-md-4 py-3">

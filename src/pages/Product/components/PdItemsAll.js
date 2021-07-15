@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import PdItemBlock from './PdItemBlock'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+// import DropdownButton from 'react-bootstrap/DropdownButton'
+// import Dropdown from 'react-bootstrap/Dropdown'
 
 function PdItemsAll(props) {
   const { cateIdPa } = props
   const catePa = cateIdPa
   const [products, setProducts] = useState([])
-  const [cateName, setCateName] = useState('')
+  // const [cateName, setCateName] = useState('')
   //   const [dataLoading, setDataLoading] = useState(false)
   //   const [page, setPage] = useState(1)
 
   async function getPoductFromServer(params = {}) {
     // 開啟載入指示
     // setDataLoading(true)
+
     params.catePa = cateIdPa
-    // 現在頁數
-    // let pageUrl = `?page=${params.page}`
 
     // 連接的伺服器資料網址
     const url = 'http://localhost:4567/product/'
@@ -39,7 +38,6 @@ function PdItemsAll(props) {
 
   useEffect(() => {
     getPoductFromServer({ catePa })
-    findCategoryName()
   }, [])
 
   //列出頁數陣列
@@ -47,42 +45,14 @@ function PdItemsAll(props) {
   console.log(pageArray)
 
   // 找出分類名稱
-  console.log('分類號碼：', products.catePa)
-  // function findCategoryName() {
-  //   if (products.catePa === 1) {
-  //     setCateName('衛生棉')
-  //   }
-  // }
-
+  // console.log('分類號碼：', products.catePa)
   const cateNames = {
-    0: '全部商品',
+    0: '全',
     1: '衛生棉',
     2: '衛生棉條',
     3: '布衛生棉',
     4: '月亮杯',
     5: '月亮褲',
-  }
-
-  function findCategoryName() {
-    switch (products.catePa) {
-      case 1:
-        setCateName('衛生棉')
-        break
-      case 2:
-        setCateName('衛生棉條')
-        break
-      case 3:
-        setCateName('布衛生棉')
-        break
-      case 4:
-        setCateName('月亮杯')
-        break
-      case 5:
-        setCateName('月亮褲')
-        break
-      default:
-        setCateName('全部商品')
-    }
   }
 
   //   useEffect(() => {
@@ -106,10 +76,8 @@ function PdItemsAll(props) {
       <div className="row product-content flex-column">
         <div className="product-category-sec text-center mx-auto">
           <div className="d-flex mx-auto justify-content-between py-3 mb-3">
-            <h6 className="my-auto py-0">
-              此分類為: {cateNames[products.catePa]}
-            </h6>
-            <p className="my-auto ml-3">共 {products.total} 項商品</p>
+            <h6 className="my-auto py-0">{cateNames[products.catePa]}系列</h6>
+            <p className="my-auto ml-4 py-0">共 {products.total} 項商品</p>
 
             {/* <DropdownButton id="dropdownMenu1n" className="mx-3" title="抓分類">
               {cateOption.length &&

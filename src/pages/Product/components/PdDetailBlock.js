@@ -154,7 +154,7 @@ function PdDetailBlock(props) {
               </div>
             </div>
             <div className="item-qty d-flex justify-content-between">
-              <h6 className>數量</h6>
+              <h6>數量</h6>
               <div className="item-qty-input input-group">
                 <div className="input-group-btn">
                   <button

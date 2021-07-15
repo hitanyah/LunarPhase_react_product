@@ -321,12 +321,9 @@
 }
 
 /* ----- order-link ----- */
-.product-order-link {
-  /* width: 48%; */
-  /* height: 200px; */
-}
+
 .product-order-link-box {
-  height: 220px;
+  height: 240px;
   margin: 0;
   position: relative;
   margin-bottom: 20px;
@@ -346,12 +343,12 @@
   transition: 0.3s;
 }
 .product-order-link-info {
-  height: 220px;
+  height: 240px;
   width: 100%;
   background: #fdd2bbab;
   color: #383844;
   opacity: 0;
-  padding-top: 20%;
+  padding-top: 25%;
 
   position: absolute;
   bottom: 0;

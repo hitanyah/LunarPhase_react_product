@@ -12,9 +12,7 @@ function LunarPhaseNavbar() {
   const [sticky, setSticky] = useState(false)
 
   useEffect(() => {
-    window.onscroll = function () {
-      navbarSticky()
-    }
+    // Nav scroll then sticky
     const navbar = document.getElementById('navbar')
     const sticky = navbar.offsetTop
     function navbarSticky() {
@@ -53,7 +51,6 @@ function LunarPhaseNavbar() {
               <div className="ml-2 mt-2">
                 <Link to="/" className="mx-0">
                   <FaUser />
-                  <i className="fas fa-user" />
                 </Link>
                 <div />
               </div>
@@ -61,13 +58,13 @@ function LunarPhaseNavbar() {
                 <Link to="/" className="mx-0">
                   <FaBookmark />
                 </Link>
-                <p className="small mx-0 mb-2">(0)</p>
+                <p className="small mx-0 mb-1">(0)</p>
               </div>
               <div className="ml-2 mt-2">
                 <Link to="/" className="mx-0">
                   <FaShoppingCart />
                 </Link>
-                <p className="small mx-0 mb-2">(0)</p>
+                <p className="small mx-0 mb-1">(0)</p>
               </div>
             </div>
           </div>
@@ -126,7 +123,9 @@ function LunarPhaseNavbar() {
                       購物車
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">登出</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.4">
+                      登入 / 登出
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>

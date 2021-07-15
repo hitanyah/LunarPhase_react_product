@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
-
 import { useParams } from 'react-router'
-
 import './ProductDetail.scss'
 
 // component
@@ -47,8 +45,9 @@ function ProductDetail() {
 
   useEffect(() => {
     getPoductFromServer()
+    // 點選推薦時刷新頁面
     setTimeout(() => {
-      console.log(itemIda + 'XX' + itemId)
+      // console.log(itemIda + 'XX' + itemId)
       if (itemIda !== itemId) {
         setItemIda(itemId)
       }
@@ -77,20 +76,13 @@ function ProductDetail() {
     </>
   )
 
-  // const pisplayInfo = ({ itemId }) =>{
-  //   switch
-
-  // }
-
   return (
     <>
       <LunarPhaseNavbar />
       {/* items */}
       {display}
       {/* <PdDetailBlock /> */}
-
       <PdInfoPad />
-
       <PdLinkKit />
 
       <div className="top-pick you-love container-fluid">
@@ -100,14 +92,20 @@ function ProductDetail() {
           <PdAlsoLove />
         </div>
       </div>
-
-      <ArticleCard />
       <div className="container-fluid">
+        <div className="row flex-column">
+          <h4>Learn More</h4>
+          <h6 className="h6-tc">熱門話題</h6>
+        </div>
+        <ArticleCard className="mb-5" />
+      </div>
+
+      {/* <div className="container-fluid">
         <div className="row">
           <h4>Review</h4>
           <h6 className="h6-tc">商品評論</h6>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </>
   )
