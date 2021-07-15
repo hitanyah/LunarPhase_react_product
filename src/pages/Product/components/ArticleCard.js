@@ -8,7 +8,7 @@ const ArticleCard = () => {
         <CardDeck className="m-auto">
           <Card className="col-12 col-lg-4">
             <a
-              href="http://localhost:3000/articledetail/35"
+              href="http://localhost:3333/articledetail/35"
               style={{ textDecoration: 'none' }}
             >
               <Card.Img
@@ -30,7 +30,7 @@ const ArticleCard = () => {
 
           <Card className="col-12 col-lg-4">
             <a
-              href="http://localhost:3000/articledetail/24"
+              href="http://localhost:3333/articledetail/24"
               style={{ textDecoration: 'none' }}
             >
               <Card.Img
@@ -52,7 +52,7 @@ const ArticleCard = () => {
 
           <Card className="col-12 col-lg-4">
             <a
-              href="http://localhost:3000/articledetail/28"
+              href="http://localhost:3333/articledetail/28"
               style={{ textDecoration: 'none' }}
             >
               <Card.Img
