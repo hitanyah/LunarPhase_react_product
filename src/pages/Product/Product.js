@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Product.scss'
@@ -16,15 +16,35 @@ import PdTopPick from './components/PdTopPick'
 import PdItemsAll from './components/PdItemsAll'
 // import PdItemsPd from './components/PdItemsPd'
 import PdCateSelectAll from './components/PdCateSelectAll'
-import PdCateSelectCate from './components/PdCateSelectCate'
 import PdCateSelect from './components/PdCateSelect'
 
 function Product(props) {
-  const [selectCateId, setSelectCateId] = useState(0)
+  const [cateId, setCateId] = useState(0)
 
-  // useEffect(()=>{
+  // drawing animate
+  // const [drawing, setDrawing] = useState(false)
 
-  // },[])
+  // useEffect(() => {
+  //   window.onscroll = function () {
+  //     drawing()
+  //   }
+  //   const block = document.getElementById('naturally-bolck')
+  //   const drawMe = block.offsetTop
+
+  //   function drawing() {
+  //     if (window.pageYOffset >= drawMe) {
+  //       setDrawing(true)
+  //     } else {
+  //       setDrawing(false)
+  //     }
+  //   }
+  // }, [])
+
+  // const displayDraw = (
+  //   <>
+  //     <PdLineHeart />
+  //   </>
+  // )
 
   return (
     <>
@@ -35,88 +55,61 @@ function Product(props) {
       <PdSlider />
       {/* ----- item category ----- */}
       <div className="container-fluid">
-        <div className="row flex-column">
+        <div className="row product-cate-top flex-column">
           <h4>PRODUCT</h4>
           <div className="product-category d-flex flex-column flex-sm-row justify-content-between py-0 px-0 px-lg-5">
-            {/* <button
-          onClick={() => setClicked(!clicked)}
-          className={
-            clicked ? 'pd-category-btn pd-category-selected' : 'pd-category-btn'
-          }
-        >
-          熱門活動
-        </button> */}
-            <button
-              onClick={() => setSelectCateId(0)}
-              className="pd-category-btn"
-            >
+            <button onClick={() => setCateId(0)} className="pd-category-btn">
               全部商品
             </button>
-            <button
-              onClick={() => setSelectCateId(1)}
-              className="pd-category-btn"
-            >
+            <button onClick={() => setCateId(1)} className="pd-category-btn">
               衛生棉
             </button>
-            <button
-              onClick={() => setSelectCateId(2)}
-              className="pd-category-btn"
-            >
+            <button onClick={() => setCateId(2)} className="pd-category-btn">
               衛生棉條
             </button>
-            <button
-              onClick={() => setSelectCateId(3)}
-              className="pd-category-btn"
-            >
+            <button onClick={() => setCateId(3)} className="pd-category-btn">
               布衛生棉
             </button>
-            <button
-              onClick={() => setSelectCateId(4)}
-              className="pd-category-btn"
-            >
+            <button onClick={() => setCateId(4)} className="pd-category-btn">
               月亮杯
             </button>
-            <button
-              onClick={() => setSelectCateId(5)}
-              className="pd-category-btn"
-            >
+            <button onClick={() => setCateId(5)} className="pd-category-btn">
               生理褲
             </button>
           </div>
-          {selectCateId === 0 && (
-            <PdCateSelectAll selectCateId={setSelectCateId} />
-          )}
-          {selectCateId === 1 && (
-            <PdCateSelectCate selectCateId={setSelectCateId} />
+          {/* {cateId === 0 && <PdCateSelectAll selectCateId={setCateId} />} */}
+          {/* {selectCateId === 1 && (
+            <PdCateSelect selectCateId={setCateId} />
           )}
           {selectCateId === 2 && (
-            <PdCateSelectCate selectCateId={setSelectCateId} />
+            <PdCateSelect selectCateId={setCateId} />
           )}
           {selectCateId === 3 && (
-            <PdCateSelectCate selectCateId={setSelectCateId} />
+            <PdCateSelect selectCateId={setCateId} />
           )}
           {selectCateId === 4 && (
-            <PdCateSelectCate selectCateId={setSelectCateId} />
+            <PdCateSelect selectCateId={setCateId} />
           )}
           {selectCateId === 5 && (
-            <PdCateSelect selectCateId={setSelectCateId} />
-          )}
+            <PdCateSelect selectCateId={setCateId} />
+          )} */}
 
           {/* <PdCateTop /> */}
         </div>
-        {selectCateId === 0 && <PdItemsAll cateIdPa={selectCateId} />}
-        {selectCateId === 1 && <PdItemsAll cateIdPa={selectCateId} />}
-        {selectCateId === 2 && <PdItemsAll cateIdPa={selectCateId} />}
-        {selectCateId === 3 && <PdItemsAll cateIdPa={selectCateId} />}
-        {selectCateId === 4 && <PdItemsAll cateIdPa={selectCateId} />}
-        {selectCateId === 5 && <PdItemsAll cateIdPa={selectCateId} />}
+        {cateId === 0 && <PdItemsAll cateIdPa={cateId} />}
+        {cateId === 1 && <PdItemsAll cateIdPa={cateId} />}
+        {cateId === 2 && <PdItemsAll cateIdPa={cateId} />}
+        {cateId === 3 && <PdItemsAll cateIdPa={cateId} />}
+        {cateId === 4 && <PdItemsAll cateIdPa={cateId} />}
+        {cateId === 5 && <PdItemsAll cateIdPa={cateId} />}
         {/* <PdItemsAll /> */}
         {/* <PdItemsPd /> */}
       </div>
       {/* ----- top pick ----- */}
       <PdTopPick />
       {/* ----- info & link ----- */}
-      <div className="naturally container-fluid">
+      <div id="naturally-bolck" className="naturally container-fluid">
+        {/* {drawing ? displayDraw : ''} */}
         <PdLineHeart />
         <div className="row flex-column">
           <h4>Naturally Powerful</h4>

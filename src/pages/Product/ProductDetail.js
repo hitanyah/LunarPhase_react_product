@@ -16,6 +16,10 @@ import PdLinkKit from './components/PdLinkKit'
 
 function ProductDetail() {
   const { itemId } = useParams()
+  // console.log(itemId)
+
+  // 觀察Params 的itemId 變更
+  const [itemIda, setItemIda] = useState(itemId)
 
   const [products, setProducts] = useState([])
 
@@ -39,9 +43,17 @@ function ProductDetail() {
     setProducts([data])
   }
 
+  // const pageId = {props.match.params.id}
+
   useEffect(() => {
     getPoductFromServer()
-  }, [])
+    setTimeout(() => {
+      console.log(itemIda + 'XX' + itemId)
+      if (itemIda !== itemId) {
+        setItemIda(itemId)
+      }
+    }, 100)
+  }, [itemId])
 
   const display = (
     <>

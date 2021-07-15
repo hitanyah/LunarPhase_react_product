@@ -97,9 +97,9 @@ function PdAlsoLove() {
               <>
                 <div className=" flex-column pick-unit col-12 col-md-6 col-lg-4 mb-5 mb-lg-0">
                   <div className="pick-unit-img">
-                    <a href={`/product-detail/${value.itemId}`}>
+                    <Link to={`/product-detail/${value.itemId}`}>
                       <img src={`/img/Product/${value.itemCoverImg}`} alt="" />
-                    </a>
+                    </Link>
                   </div>
                   <div className="item-name mb-0">
                     <Link to={`/product-detail/${value.itemId}`}>

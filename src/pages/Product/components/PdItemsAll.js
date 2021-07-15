@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import PdItemBlock from './PdItemBlock'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 function PdItemsAll(props) {
   const { cateIdPa } = props
   const catePa = cateIdPa
   const [products, setProducts] = useState([])
+  const [cateName, setCateName] = useState('')
   //   const [dataLoading, setDataLoading] = useState(false)
   //   const [page, setPage] = useState(1)
 
   async function getPoductFromServer(params = {}) {
     // 開啟載入指示
     // setDataLoading(true)
-
+    params.catePa = cateIdPa
     // 現在頁數
     // let pageUrl = `?page=${params.page}`
 
@@ -36,17 +39,57 @@ function PdItemsAll(props) {
 
   useEffect(() => {
     getPoductFromServer({ catePa })
+    findCategoryName()
   }, [])
+
+  //列出頁數陣列
+  let pageArray = Array.from(Array(products.totalPages).keys())
+  console.log(pageArray)
+
+  // 找出分類名稱
+  console.log('分類號碼：', products.catePa)
+  // function findCategoryName() {
+  //   if (products.catePa === 1) {
+  //     setCateName('衛生棉')
+  //   }
+  // }
+
+  const cateNames = {
+    0: '全部商品',
+    1: '衛生棉',
+    2: '衛生棉條',
+    3: '布衛生棉',
+    4: '月亮杯',
+    5: '月亮褲',
+  }
+
+  function findCategoryName() {
+    switch (products.catePa) {
+      case 1:
+        setCateName('衛生棉')
+        break
+      case 2:
+        setCateName('衛生棉條')
+        break
+      case 3:
+        setCateName('布衛生棉')
+        break
+      case 4:
+        setCateName('月亮杯')
+        break
+      case 5:
+        setCateName('月亮褲')
+        break
+      default:
+        setCateName('全部商品')
+    }
+  }
 
   //   useEffect(() => {
   //     setTimeout(() => {
   //       setDataLoading(false)
   //     }, 1000)
   //   }, [products])
-
-  //列出頁數陣列
-  let pageArray = Array.from(Array(products.totalPages).keys())
-  console.log(pageArray)
 
   //   const loading = (
   //     <>
@@ -61,6 +104,25 @@ function PdItemsAll(props) {
   const display = (
     <>
       <div className="row product-content flex-column">
+        <div className="product-category-sec text-center mx-auto">
+          <div className="d-flex mx-auto justify-content-between py-3 mb-3">
+            <h6 className="my-auto py-0">
+              此分類為: {cateNames[products.catePa]}
+            </h6>
+            <p className="my-auto ml-3">共 {products.total} 項商品</p>
+
+            {/* <DropdownButton id="dropdownMenu1n" className="mx-3" title="抓分類">
+              {cateOption.length &&
+            cateOption.map((value, index) => {
+              return (
+                <>
+                  <Dropdown.Item>{value.categoryName}</Dropdown.Item>
+                </>
+              )
+            })}
+            </DropdownButton> */}
+          </div>
+        </div>
         <div className="row product-unit-wrap">
           {products.perPage &&
             products.data.map((value, index) => {
