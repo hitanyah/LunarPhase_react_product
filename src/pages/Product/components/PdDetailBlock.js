@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 // react-icon
@@ -76,6 +77,16 @@ function PdDetailBlock(props) {
   const mutiImgArray = itemImg.split(',')
   // console.log(mutiImgArray)
 
+  // location 重整？？
+  let location = useLocation()
+  const locationId = location.pathname.split('/')
+
+  useEffect(() => {
+    console.log(location.pathname)
+    console.log(locationId)
+    console.log(locationId[2])
+  }, [location])
+
   return (
     <>
       <div className="container-fluid">
@@ -88,7 +99,7 @@ function PdDetailBlock(props) {
               >
                 <img src={`/img/Product/${itemCoverImg}`} alt="" />
               </button>
-              {mutiImgArray.length &&
+              {mutiImgArray.length > 0 &&
                 mutiImgArray.map((value, index) => {
                   return (
                     <>
@@ -187,6 +198,7 @@ function PdDetailBlock(props) {
                     name: itemName,
                     amount: qty, //傳Qty
                     price: itemPrice,
+                    image: `/img/Product/${itemCoverImg}`,
                   })
                   alertCheck()
                 }}

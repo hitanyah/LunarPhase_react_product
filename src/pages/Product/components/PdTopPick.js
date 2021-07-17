@@ -90,7 +90,7 @@ function PdTopPick() {
   const display = (
     <>
       <div className="row pick-unit-wrap">
-        {picks.length &&
+        {picks.length > 0 &&
           picks.map((value, index) => {
             return (
               <>
@@ -115,6 +115,7 @@ function PdTopPick() {
                         name: `${value.itemName}`,
                         amount: 1, //傳Qty
                         price: `${value.itemPrice}`,
+                        image: `/img/Product/${value.itemCoverImg}`,
                       })
                       alertCheck()
                     }}

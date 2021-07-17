@@ -80,7 +80,7 @@ function PdItemsAll(props) {
             <p className="my-auto ml-4 py-0">共 {products.total} 項商品</p>
 
             {/* <DropdownButton id="dropdownMenu1n" className="mx-3" title="抓分類">
-              {cateOption.length &&
+              {cateOption.length >0 &&
             cateOption.map((value, index) => {
               return (
                 <>
@@ -92,7 +92,7 @@ function PdItemsAll(props) {
           </div>
         </div>
         <div className="row product-unit-wrap">
-          {products.perPage &&
+          {products.perPage > 0 &&
             products.data.map((value, index) => {
               return (
                 <>
