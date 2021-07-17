@@ -11,34 +11,50 @@ import PdLinkArticle from './components/PdLinkArticle'
 import PdLineHeart from './components/PdLineHeart'
 import PdTopPick from './components/PdTopPick'
 import PdItemsAll from './components/PdItemsAll'
+// import PdCateSelectAll from './components/PdCateSelectAll'
 
 function Product(props) {
   const [cateId, setCateId] = useState(0)
 
   // drawing animate
-  // const [drawing, setDrawing] = useState(false)
+  const [sticky, setSticky] = useState(false)
 
-  // useEffect(() => {
-  //   window.onscroll = function () {
-  //     drawing()
-  //   }
-  //   const block = document.getElementById('naturally-bolck')
-  //   const drawMe = block.offsetTop
+  // drawing animate
+  const [drawing, setDrawing] = useState(false)
 
-  //   function drawing() {
-  //     if (window.pageYOffset >= drawMe) {
-  //       setDrawing(true)
-  //     } else {
-  //       setDrawing(false)
-  //     }
-  //   }
-  // }, [])
+  useEffect(() => {
+    const navbar = document.getElementById('navbar')
+    const sticky = navbar.offsetTop
+    function navbarSticky() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add('sticky')
+        setSticky(true)
+      } else {
+        navbar.classList.remove('sticky')
+      }
+    }
 
-  // const displayDraw = (
-  //   <>
-  //     <PdLineHeart />
-  //   </>
-  // )
+    const block = document.getElementById('naturally-bolck')
+    const drawMe = block.offsetTop
+
+    function drawing() {
+      if (window.pageYOffset >= drawMe) {
+        setDrawing(true)
+      } else {
+        setDrawing(false)
+      }
+    }
+    window.onscroll = function () {
+      drawing()
+      navbarSticky()
+    }
+  }, [])
+
+  const displayDraw = (
+    <>
+      <PdLineHeart />
+    </>
+  )
 
   return (
     <>
@@ -99,8 +115,8 @@ function Product(props) {
       <PdTopPick />
       {/* ----- info & link ----- */}
       <div id="naturally-bolck" className="naturally container-fluid">
-        {/* {drawing ? displayDraw : ''} */}
-        <PdLineHeart />
+        {drawing ? displayDraw : ''}
+        {/* <PdLineHeart /> */}
         <div className="row flex-column">
           <h4>Naturally Powerful</h4>
           <h6>安心保證</h6>
