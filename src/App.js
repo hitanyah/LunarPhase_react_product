@@ -1,10 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-// import 'App.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import './styles/style-guide.scss'
-
 import ScrollToTop from './components/ScrollToTop'
 // pages
 import IndexMy from './pages/Index/IndexMy'
