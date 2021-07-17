@@ -56,7 +56,7 @@ function ProductDetail() {
 
   const display = (
     <>
-      {products.length &&
+      {products.length > 0 &&
         products.map((value, index) => {
           return (
             <PdDetailBlock
