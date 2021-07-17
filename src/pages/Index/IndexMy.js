@@ -8,19 +8,16 @@ import LunarPhaseNavbar from '../../components/LunarPhaseNavbar'
 
 // react-icon
 import { GrFacebookOption, GrInstagram } from 'react-icons/gr'
-// import { GrInstagram } from 'react-icons/gr'
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc'
-// import { VscChevronRight } from 'react-icons/vsc'
 import { RiMoonClearFill } from 'react-icons/ri'
 
-//animate css
-import 'animate.css'
-// WOW
-import WOW from 'wowjs'
+// AOS
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 function Index() {
   useEffect(() => {
-    new WOW.WOW().init()
+    AOS.init({ offset: 120, duration: 800 })
   }, [])
 
   return (
@@ -96,19 +93,20 @@ function Index() {
       {/* ABOUT */}
       <div id="about" className="index-about container-fluid">
         <div className="row index-about-row">
-          <h2
-            className="wow fadeIn col-12"
-            data-wow-duration="2s"
-            data-wow-delay="1s"
-          >
-            Our Mission
-          </h2>
+          <h2 className="col-12">Our Mission</h2>
           <img
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="200"
             className="index-about-content col-12 col-md-9 col-lg-6 mx-auto"
             src="/img/Index/calligraphy001.svg"
             alt="Our_Mission"
           />
-          <div className="row col-12 index-about-unit justify-content-between">
+          <div
+            data-aos="fade-down"
+            data-aos-delay="300"
+            className="row col-12 index-about-unit justify-content-between"
+          >
             <div className="index-about-unit-block col-12 col-md-6 col-lg-3 px-5 px-md-3 mb-3">
               <Link to="/product">
                 <span>01.</span>
@@ -160,14 +158,19 @@ function Index() {
       {/* product */}
       <div id="product" className="index-product container-fluid text-center">
         <div className="row index-product-row">
-          <h2 className="col-12">PRODUCT</h2>
+          <h2 className="col-12 text-center">PRODUCT</h2>
           <div className="index-product-bg-mountain">
             <img src="/img/Index/mountain-w.svg" alt="mountain-bg" />
           </div>
-          <div className="col-12 row index-product-unit-wrap justify-content-between mx-auto">
+          <div
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+            className="col-12 row index-product-unit-wrap justify-content-between mx-auto"
+          >
             <div className="index-product-unit product-unit-move col-12 col-md-2 mt-md-5">
               <div className="index-product-moon-frame mx-auto text-center">
-                <Link to href>
+                <Link to>
                   <div className="index-moon moon1">
                     <img src="/img/Index/panties.svg" alt="" />
                   </div>
@@ -246,15 +249,23 @@ function Index() {
       {/* ARTICLE */}
       <div id="article" className="index-article container-fluid">
         <div className="row index-row">
-          <div className="index-article-header d-flex justify-content-between col-12 mx-0 px-0">
-            <h2>ARTICLE</h2>
-            <div className="index-article-tags d-flex">
-              <h6 className="h6-tc ml-3 text-right">
+          <div className="index-article-header d-flex flex-wrap justify-content-between col-12 mx-0 px-0">
+            <Link to="/article">
+              <h2 className="col-12 col-sm-4 px-0">ARTICLE</h2>
+            </Link>
+            <div className="index-article-tags col-12 col-sm-8 px-0">
+              <h6 className="h6-tc ml-3 text-center text-sm-right px-0">
                 生理期小知識 / 兩性學堂 / 流言終結
               </h6>
             </div>
           </div>
-          <div className="index-article-topic row col-12">
+          <div
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="300"
+            data-aos-offset="0"
+            className="index-article-topic row col-12"
+          >
             <div className="index-article-topic-content text-left col-12 col-md-6 col-lg-8 ml-0 pl-0 pr-0 pr-md-3">
               <div className="">
                 <p className="index-article-date mb-1">2021.07.26</p>
@@ -285,7 +296,13 @@ function Index() {
               </Link>
             </div>
           </div>
-          <div className="index-article-unit-wrap row text-left col-12">
+          <div
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="600"
+            data-aos-offset="0"
+            className="index-article-unit-wrap row text-left col-12"
+          >
             <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 mb-5 mb-md-4 mb-lg-0">
               <div className="p-0 m-0">
                 <p className="index-article-date mb-1">2021.07.19</p>
@@ -407,15 +424,42 @@ function Index() {
       </div>
       {/* KIT */}
       <div id="kit" className="index-kit container-fluid">
-        <div className="index-kit-pic1" />
-        <div className="index-kit-pic2" />
-        <div className="index-kit-pic3" />
-        <div className="index-kit-pic4" />
+        <div
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="300"
+          className="index-kit-pic1"
+        />
+        <div
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="800"
+          className="index-kit-pic2"
+        />
+        <div
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="1300"
+          className="index-kit-pic3"
+        />
+        <div
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="1800"
+          className="index-kit-pic4"
+        />
         <div className="index-kit-content row index-row justify-content-between">
           <div className="index-kit-content-l pl-0 col-12 col-md-4">
-            <h2>KIT</h2>
+            <Link to="/kit">
+              <h2>KIT</h2>
+            </Link>
           </div>
-          <div className="index-kit-content-r col-12 col-md-8">
+          <div
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="2400"
+            className="index-kit-content-r col-12 col-md-8"
+          >
             <h5 className="h5-tc">月訂專區 - 生理期採購新提案</h5>
             <p className="my-4">
               每個女生都有個生理期秘密小包包，裡面是精挑細選的最佳選手。
@@ -453,7 +497,10 @@ function Index() {
             <VscChevronLeft />
           </button>
           <div className="index-event-content row m-0 justify-content-between">
-            <div className="index-event-unit-wrap d-flex justify-content-between">
+            <div
+              data-aos="fade-up"
+              className="index-event-unit-wrap d-flex justify-content-between"
+            >
               <div className="index-event-unit row">
                 <div className="col-12 col-lg-4 mb-5">
                   <p className="index-article-date mb-2 mx-auto">2021.08.14</p>
@@ -519,10 +566,16 @@ function Index() {
         <div className="banner-img"></div>
       </div>
       <div className="join-us container text-center">
-        <h2>Join Us</h2>
-        <p className="p-tc mb-5">和我們一起探索更多生理期的大秘密</p>
-        <button className="btn-soft-green mt-5">SIGN UP</button>
-        <div className="index-moon-circle text-center"></div>
+        <h2 data-aos="fade-down">Join Us</h2>
+        <p data-aos="fade-down" className="p-tc mb-5">
+          和我們一起探索更多生理期的大秘密
+        </p>
+        <button data-aos="fade-down" className="btn-soft-green mt-5">
+          SIGN UP
+        </button>
+        <div className="index-moon-circle text-center">
+          <img src="/img/Index/moon-circle01.svg" alt="" />
+        </div>
       </div>
       {/* FOOTER */}
       <div className="index-footer container-fluid">
@@ -538,7 +591,7 @@ function Index() {
               </Link>
             </div>
             <nav className="my-auto col-12 col-md-10 px-0">
-              <ul className="d-flex justify-content-center justify-content-md-end  my-3 my-md-0 px-auto px-md-0 col-12">
+              <ul className="d-flex flex-wrap justify-content-center justify-content-md-end  my-3 my-md-0 px-auto px-md-0 col-12">
                 <li>
                   <Link to="/product" className="index-footer-a ml-3">
                     PRODUCT
