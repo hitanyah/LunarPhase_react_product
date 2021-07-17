@@ -9,6 +9,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { FaShoppingCart, FaUser, FaBookmark } from 'react-icons/fa'
 
 function LunarPhaseNavbar() {
+  // const { cartQty } = props
   const [sticky, setSticky] = useState(false)
 
   useEffect(() => {
@@ -29,8 +30,8 @@ function LunarPhaseNavbar() {
   }, [])
   return (
     <>
-      <nav id="navbar">
-        <div className={sticky ? 'nav-bar sticky' : 'nav-bar'}>
+      <nav id="navbar" className={sticky ? 'sticky' : ''}>
+        <div className="nav-bar">
           <div className="nav-bar-top d-flex">
             <div className="col-4" />
             <div className="col-4 d-flex justify-content-center">
@@ -61,7 +62,7 @@ function LunarPhaseNavbar() {
                 <p className="small mx-0 mb-1">(0)</p>
               </div>
               <div className="ml-2 mt-2">
-                <Link to="/" className="mx-0">
+                <Link to="/cart/item" className="mx-0">
                   <FaShoppingCart />
                 </Link>
                 <p className="small mx-0 mb-1">(0)</p>
@@ -88,11 +89,11 @@ function LunarPhaseNavbar() {
             </ul>
           </div>
         </div>
-        <div>
+        <div className="nav-bar-mobile">
           <Navbar
             bg="bg-nav-bar-mobile"
             expand="lg"
-            className="nav-bar-mobile bg-nav-bar-mobile"
+            className="bg-nav-bar-mobile"
           >
             <Container fluid>
               <Navbar.Brand href="#home">
@@ -113,19 +114,13 @@ function LunarPhaseNavbar() {
                   <Nav.Link href="/event">EVENT</Nav.Link>
                   <Nav.Link href="/login">JOIN US</Nav.Link>
                   <NavDropdown title="會員中心" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      會員資料
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      我的收藏
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
+                    <NavDropdown.Item href="/">會員資料</NavDropdown.Item>
+                    <NavDropdown.Item href="/">我的收藏</NavDropdown.Item>
+                    <NavDropdown.Item href="/cart/item">
                       購物車
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      登入 / 登出
-                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/">登入 / 登出</NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
               </Navbar.Collapse>
