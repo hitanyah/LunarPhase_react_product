@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './IndexMy.scss'
 
@@ -13,7 +13,16 @@ import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc'
 // import { VscChevronRight } from 'react-icons/vsc'
 import { RiMoonClearFill } from 'react-icons/ri'
 
+//animate css
+import 'animate.css'
+// WOW
+import WOW from 'wowjs'
+
 function Index() {
+  useEffect(() => {
+    new WOW.WOW().init()
+  }, [])
+
   return (
     <>
       {/* HEADER */}
@@ -60,9 +69,9 @@ function Index() {
 
         <div className="index-top-bottom d-flex justify-content-between py-3">
           <div className="index-login-bar d-flex my-auto">
-            <Link to="">LOG IN</Link>
+            <Link to="/login">LOG IN</Link>
             <p> / </p>
-            <Link to="">CART</Link>
+            <Link to="/cart">CART</Link>
           </div>
           <div className="index-news-bar d-flex my-auto">
             <Link
@@ -87,9 +96,15 @@ function Index() {
       {/* ABOUT */}
       <div id="about" className="index-about container-fluid">
         <div className="row index-about-row">
-          <h2 className="col-12">Our Mission</h2>
+          <h2
+            className="wow fadeIn col-12"
+            data-wow-duration="2s"
+            data-wow-delay="1s"
+          >
+            Our Mission
+          </h2>
           <img
-            className="index-about-content col-12 col-md-9 col-lg-7 mx-auto"
+            className="index-about-content col-12 col-md-9 col-lg-6 mx-auto"
             src="/img/Index/calligraphy001.svg"
             alt="Our_Mission"
           />
@@ -234,25 +249,31 @@ function Index() {
           <div className="index-article-header d-flex justify-content-between col-12 mx-0 px-0">
             <h2>ARTICLE</h2>
             <div className="index-article-tags d-flex">
-              <h6 className="h6-tc ml-3">生理期小知識 / 兩性學堂 / 流言終結</h6>
+              <h6 className="h6-tc ml-3 text-right">
+                生理期小知識 / 兩性學堂 / 流言終結
+              </h6>
             </div>
           </div>
           <div className="index-article-topic row col-12">
             <div className="index-article-topic-content text-left col-12 col-md-6 col-lg-8 ml-0 pl-0 pr-0 pr-md-3">
-              <p className="index-article-date mb-1">2021.07.26</p>
-              <Link to="/article">
-                <h4 className="h4-tc">新種月事用品　溫柔對待你的「好朋友」</h4>
+              <div className="">
+                <p className="index-article-date mb-1">2021.07.26</p>
+                <Link to="/article">
+                  <h4 className="index-article-h4 h4-tc">
+                    新種月事用品　溫柔對待你的「好朋友」
+                  </h4>
+                </Link>
                 <p className="p-tc">
                   除了衛生棉外，你還能選擇棉條、月事杯、布衛生棉。
                   了解你自己的身體需求，解開每個月的周期密碼。
                 </p>
-              </Link>
-              <div className="d-flex justify-content-between pb-0">
+              </div>
+              <div className="index-article-unit-under  d-flex justify-content-between">
                 <div className="btn-read text-center">
                   <Link>read</Link>
                 </div>
                 <div>
-                  <Link to="/article" className="btn-tag ml-2">
+                  <Link to="/article" className="btn-tag mr-0">
                     #衛教資訊
                   </Link>
                 </div>
@@ -260,82 +281,29 @@ function Index() {
             </div>
             <div className="index-article-topic-img col-12 col-md-6 col-lg-4 p-0 my-4 my-md-auto">
               <Link to="/article">
-                <img
-                  src="https://images.unsplash.com/photo-1445384763658-0400939829cd"
-                  alt=""
-                />
+                <img src="/img/Index/article001.jpg" alt="" />
               </Link>
             </div>
           </div>
           <div className="index-article-unit-wrap row text-left col-12">
-            <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
-              <p className="index-article-date mb-1">2021.07.19</p>
-              <div className="index-article-unit-img col-12 p-0">
-                <Link to="/article">
-                  <img
-                    src="https://image1.thenewslens.com/2014/06/P1220386.jpg"
-                    alt=""
-                  />
-                </Link>
-              </div>
-              <Link to="/article">
-                <h5 className="index-article-h5 h5-tc my-2">
-                  經期不再污名化，七年級女生用布衛生棉改變世界—棉樂悅事工坊創辦人林念慈
-                </h5>
-              </Link>
-              <div className="d-flex justify-content-between align-items-end pb-0 mt-4 mb-auto">
-                <div className="btn-read text-center">
-                  <Link to="/article">read</Link>
-                </div>
-                <div className="text-right">
-                  <Link to="/article" className="btn-tag ml-2">
-                    #性別故事
+            <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 mb-5 mb-md-4 mb-lg-0">
+              <div className="p-0 m-0">
+                <p className="index-article-date mb-1">2021.07.19</p>
+                <div className="index-article-unit-img col-12 p-0">
+                  <Link to="/article">
+                    <img
+                      src="https://image1.thenewslens.com/2021/2/1hqsbc1l7jhhuid6vaq4igmc6tws00.jpg"
+                      alt=""
+                    />
                   </Link>
                 </div>
-              </div>
-            </div>
-            <div className="border-right-2 index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
-              <p className="index-article-date mb-1">2021.07.12</p>
-              <div className="index-article-unit-img col-12 p-0">
                 <Link to="/article">
-                  <img
-                    src="https://image1.thenewslens.com/2018/7/8pmoxoeljbhi38bc0yti3eh0hns3mm.jpg"
-                    alt=""
-                  />
+                  <h5 className="index-article-h5 h5-tc my-2">
+                    瑞典學校性平教育將強化認知「合意文化」，不把性騷擾「正常化」
+                  </h5>
                 </Link>
               </div>
-              <Link to="/article">
-                <h5 className="index-article-h5 h5-tc my-2">
-                  40萬人連署後，印度將衛生棉從「奢侈品」降級成免稅的「必需品」
-                </h5>
-              </Link>
-              <div className="d-flex justify-content-between align-items-end pb-0 mt-4">
-                <div className="btn-read text-center">
-                  <Link to="/article">read</Link>
-                </div>
-                <div className="text-right">
-                  <Link to="/article" className="btn-tag ml-2">
-                    #性別故事
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
-              <p className="index-article-date mb-1">2021.07.05</p>
-              <div className="index-article-unit-img col-12 p-0">
-                <Link to="/article">
-                  <img
-                    src="https://image1.thenewslens.com/2020/6/uvttq0p5yjmdz4n52b4llsev1gih0j.jpg"
-                    alt=""
-                  />
-                </Link>
-              </div>
-              <Link to="/article">
-                <h5 className="index-article-h5 h5-tc my-2">
-                  世界很亂，該和女兒談談性：做不到這點，就不可能打開通往性教育的門
-                </h5>
-              </Link>
-              <div className="d-flex justify-content-between align-items-end pb-0 mt-4">
+              <div className="index-article-unit-under  d-flex justify-content-between">
                 <div className="btn-read text-center">
                   <Link to="/article">read</Link>
                 </div>
@@ -346,22 +314,71 @@ function Index() {
                 </div>
               </div>
             </div>
-            <div className="index-article-unit col-12 col-md-6 col-lg-3 pl-3 pr-3 mb-5 mb-md-4 mb-lg-0">
-              <p className="index-article-date mb-1">2021.06.28</p>
-              <div className="index-article-unit-img col-12 p-0">
+            <div className="border-right-2 index-article-unit col-12 col-md-6 col-lg-3 mb-5 mb-md-4 mb-lg-0">
+              <div className="p-0 m-0">
+                <p className="index-article-date mb-1">2021.07.12</p>
+                <div className="index-article-unit-img col-12 p-0">
+                  <Link to="/article">
+                    <img src="/img/Index/article003.jpg" alt="" />
+                  </Link>
+                </div>
                 <Link to="/article">
-                  <img
-                    src="https://image1.thenewslens.com/2018/8/m9x9znxgim7vi2zgai8e9oe4smjnwq.jpg"
-                    alt=""
-                  />
+                  <h5 className="index-article-h5 h5-tc my-2">
+                    40萬人連署後，印度將衛生棉從「奢侈品」降級成免稅的「必需品」
+                  </h5>
                 </Link>
               </div>
-              <Link to="/article">
-                <h5 className="index-article-h5 h5-tc my-2">
-                  從意外到等待：台灣不同世代女性的初經經驗
-                </h5>
-              </Link>
-              <div className="d-flex justify-content-between align-items-end pb-0 mt-4 mb-auto">
+              <div className="index-article-unit-under  d-flex justify-content-between">
+                <div className="btn-read text-center">
+                  <Link to="/article">read</Link>
+                </div>
+                <div className="text-right">
+                  <Link to="/article" className="btn-tag ml-2">
+                    #性別故事
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="border-right-1 index-article-unit col-12 col-md-6 col-lg-3 mb-5 mb-md-4 mb-lg-0">
+              <div className="p-0 m-0">
+                <p className="index-article-date mb-1">2021.07.05</p>
+                <div className="index-article-unit-img col-12 p-0">
+                  <Link to="/article">
+                    <img src="/img/Index/article004.jpg" alt="" />
+                  </Link>
+                </div>
+                <Link to="/article">
+                  <h5 className="index-article-h5 h5-tc my-2">
+                    世界很亂，該和女兒談談性：做不到這點，就不可能打開通往性教育的門
+                  </h5>
+                </Link>
+              </div>
+              <div className="index-article-unit-under  d-flex justify-content-between">
+                <div className="btn-read text-center">
+                  <Link to="/article">read</Link>
+                </div>
+                <div className="text-right">
+                  <Link to="/article" className="btn-tag ml-2">
+                    #性教育
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="index-article-unit col-12 col-md-6 col-lg-3 mb-5 mb-md-4 mb-lg-0">
+              <div className="p-0 m-0">
+                <p className="index-article-date mb-1">2021.06.28</p>
+                <div className="index-article-unit-img p-0">
+                  <Link to="/article">
+                    <img src="/img/Index/article005.jpg" alt="" />
+                  </Link>
+                </div>
+                <Link to="/article">
+                  <h5 className="index-article-h5 h5-tc my-2">
+                    從意外到等待：台灣不同世代女性的初經經驗
+                  </h5>
+                </Link>
+              </div>
+              <div className="index-article-unit-under  d-flex justify-content-between">
                 <div className="btn-read text-center">
                   <Link to="/article">read</Link>
                 </div>
@@ -439,52 +456,56 @@ function Index() {
             <div className="index-event-unit-wrap d-flex justify-content-between">
               <div className="index-event-unit row">
                 <div className="col-12 col-lg-4 mb-5">
-                  <p className="index-article-date mb-2">2021.08.14</p>
-                  <Link href>
+                  <p className="index-article-date mb-2 mx-auto">2021.08.14</p>
+                  <Link to="/event">
                     <img
                       className="index-event-unit-img"
                       src="/img/Index/flower05.jpg"
                       alt=""
                     />
                   </Link>
-                  <Link href>
-                    <h5 className="h5-tc my-2">少女印象盆花課程</h5>
+                  <Link to="/event">
+                    <h5 className="index-event-h5 h5-tc mt-3">
+                      少女印象盆花課程
+                    </h5>
                   </Link>
-                  <p className="p-tc">永生花 x 乾燥花 x 索拉花</p>
+                  <p className="p-tc mx-auto">永生花 x 乾燥花 x 索拉花</p>
                   <div className="underline" />
-                  <p className="mt-2">報名中</p>
+                  <p className="mt-2 mx-auto">報名中</p>
                 </div>
                 <div className="col-12 col-lg-4 mb-5">
-                  <p className="index-article-date mb-2">2021.08.21</p>
-                  <Link href>
+                  <p className="index-article-date mb-2 mx-auto">2021.08.21</p>
+                  <Link to="/event">
                     <img
                       className="index-event-unit-img"
                       src="/img/Index/girltalk01.jpg"
                       alt=""
                     />
                   </Link>
-                  <Link href>
-                    <h5 className="h5-tc my-2">給女孩的人生關鍵字</h5>
+                  <Link to="/event">
+                    <h5 className="index-event-h5 h5-tc mt-3">
+                      給女孩的人生關鍵字
+                    </h5>
                   </Link>
-                  <p className="p-tc">Simple talk｜旅行生活篇</p>
+                  <p className="p-tc mx-auto">Simple talk｜旅行生活篇</p>
                   <div className="underline" />
-                  <p className="mt-2">報名中</p>
+                  <p className="mt-2 mx-auto">報名中</p>
                 </div>
                 <div className="col-12 col-lg-4 mb-5">
-                  <p className="index-article-date mb-2">2020.09.5</p>
-                  <Link href>
+                  <p className="index-article-date mb-2 mx-auto">2020.09.5</p>
+                  <Link to="/event">
                     <img
                       className="index-event-unit-img"
                       src="/img/Index/surf04.jpg"
                       alt=""
                     />
                   </Link>
-                  <Link href>
-                    <h5 className="h5-tc my-2">女神盃</h5>
+                  <Link to="/event">
+                    <h5 className="index-event-h5 h5-tc mt-3">女神盃</h5>
                   </Link>
-                  <p className="p-tc">Girls Surf Boardriders Taiwan</p>
+                  <p className="p-tc mx-auto">Girls Surf Boardriders Taiwan</p>
                   <div className="underline" />
-                  <p className="mt-2">報名中</p>
+                  <p className="mt-2 mx-auto">報名中</p>
                 </div>
               </div>
             </div>
@@ -501,6 +522,7 @@ function Index() {
         <h2>Join Us</h2>
         <p className="p-tc mb-5">和我們一起探索更多生理期的大秘密</p>
         <button className="btn-soft-green mt-5">SIGN UP</button>
+        <div className="index-moon-circle text-center"></div>
       </div>
       {/* FOOTER */}
       <div className="index-footer container-fluid">
